@@ -1,5 +1,5 @@
 ///Loop é um algoritmo capaz de gerar um laço de repetição continuo
-/// em um bloco de codigo, até que um condição seja atinjida.
+/// em um bloco de codigo, até que uma certa condição seja atinjida.
 /// Em linguagem de programação isso é chamado iteração.
 
 
