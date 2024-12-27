@@ -47,3 +47,10 @@ DROP TABLE NOME_DA_TABELA;
 -- 14. DELETAR DATABASE:
 DROP DATABASE NOME_DO_BANCO;
 
+-- 15. Atualizar o MySql:
+sudo apt-get upgrade mysql-server
+-- Se não funcionar, vc também pode usar
+sudo apt-get install mysql-server
+
+
+
