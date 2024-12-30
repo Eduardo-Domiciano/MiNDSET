@@ -3,7 +3,7 @@ LINK: https://tryhackme.com/r/room/whatisnetworking
 
 
 
-#1. O que é a internet?
+# 1. O que é a internet?
 
 A internet é uma grande rede com varias redes menores dentro. Dispositivos conectados e trocando 
 informações. A primeira iteração da internet foi dentro do projeto ARPANET no final dos anos 1960. 
@@ -19,7 +19,7 @@ interna que conecte todos os setores para trocar informações. Empresas grandes
 para armazenar informações, que servem de fonta para toda a empresa, com diferentes niveis de acesso.
 
 
-#2. Identificando os dispositivos.
+# 2. Identificando os dispositivos.
 
 Se você tem vários dispositivos em uma rede, você precisa identifica-los. Para fazer você tem duas 
 informações, o ip e as impressões digitais. Um ser humano por exemplo tem nome e impressões digitais,
@@ -29,11 +29,11 @@ impressoes digitais. No caso de um dispositivo, estamos falando de:
 * Um endereço de IP (Internet Protocol)
 * Endereço MAC (Media Access Control), esse é tipo um numero de serie.
 
-    ##2.2 Endereço de IP (Internet Protocol):
+    ## 2.2 Endereço de IP (Internet Protocol):
         Um endereço IP pode ser usado para identificar um dispositivo em uma rede por um certo periodo 
         de tempo, mas esse mesmo endereço IP pode ser associado a outro dispositivo, ja que o ip pode ser alterado.
 
-        <img src='/REDES/img/IP-IMG-THM.png'>
+        ![Modelo de endereçamento de IP](<img src='/REDES/img/IP-IMG-THM.png'>)
 
         Um endereço de IP é um conjunto de numeros divididos em 4 octetos. Esse numero é calculado por 
         meio de uma técnica conhecida como endereçamento de IP e sub-rede. Um endereço IP pode mudar de 
@@ -62,10 +62,10 @@ impressoes digitais. No caso de um dispositivo, estamos falando de:
 
         Comparação entre um endereço IPv6 e um IPv4.
 
-        <img src='/REDES/img/IPv6-IPv4-COMPARACAO-THM.png'>
+        ![Comparação do modelo IPv6 para o modelo IPv4](<img src='/REDES/img/IPv6-IPv4-COMPARACAO-THM.png'>)
 
 
-    ##2.3 Endereços MAC (Media Access Control):
+    ## 2.3 Endereços MAC (Media Access Control):
 
         Todos os dispositivos em uma rede, terão uma interface de rede fisica, que é uma placa encontrada 
         na placa mae do dispositivo. Essa interface recebe um endereço exclusivo na fabrica em que foi 
@@ -74,8 +74,11 @@ impressoes digitais. No caso de um dispositivo, estamos falando de:
         Os primeiros 2 caracteres representam a empresa que fez a interface de rede e os ultimos seis sao um numero 
         exclusivo.
 
-        <img src='/REDES/img/MAC-THM.png'>
+        ![Modelo de endereçamento MAC](<img src='/REDES/img/MAC-THM.png'>)
 
         No entanto até esse endereço pode ser falsificado, em um processo chamado spoofing. Quando isso acontece, um dispositivo pode fingir ser outro para garantir acesso em projetos com segurança mal implementada.
 
-#3. O ping é uma ferramneta essencial no dia a dia, ela usa pacortes ICMP (Internet Control Message Protocol) para determinar o desenpenho de uma conexão entre dispositivos. O tempo nescessário para os pacotes viajarem entre os dispositivos é medido pelo ping
+# 3.Ferrmaneta Ping: 
+    O ping é uma ferramneta essencial no dia a dia, ela usa pacortes ICMP (Internet Control Message Protocol) para determinar o desenpenho de uma conexão entre dispositivos. O tempo nescessário para os pacotes viajarem entre os dispositivos é medido pelo ping
+
+    ![Mostrando o ping no terminal](<img src='/REDES/img/MAC-THM.png'>)
