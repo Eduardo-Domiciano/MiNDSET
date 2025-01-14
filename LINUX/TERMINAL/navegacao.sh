@@ -48,3 +48,14 @@ mkdir nome-da-pasta
 mkdir --help
 :'Abre a documentação de mkdir'
 
+cat arquivo-de-texto
+:"Esse comando permite leitura de arquivos txt pelo terminal."
+
+sort wordlist
+:" Esse comando organiza uma wordlist em ordem alfabetica"
+
+uniq wordlist
+:" Esse comando exclui palavras repetidas em uma wordlist"
+
+wget Ip-ou-dominio/arquivo-a-ser-baixado
+:"Esse comando é usado para fazer donload de arquivos"
