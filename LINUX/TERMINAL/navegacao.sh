@@ -59,3 +59,7 @@ uniq wordlist
 
 wget Ip-ou-dominio/arquivo-a-ser-baixado
 :"Esse comando é usado para fazer donload de arquivos"
+
+grep "nome_a_ser_buscado"
+:" è uma ferramenta de linha que busca padrões em arquivo de texto, como palavras chave
+ou expressoes regulares."
