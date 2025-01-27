@@ -38,12 +38,3 @@ ssh.service - OpenBSD Secure Shell server
      Loaded: loaded (/usr/lib/systemd/system/ssh.service; disabled; preset: enabled)
      Active: active (running) since Fri 2024-12-27 23:49:09 UTC; 1 month 0 days ago
      #OBS: activo significa que esta sendo usado no momento
-TriggeredBy: ● ssh.socket
-       Docs: man:sshd(8)
-             man:sshd_config(5)
-   Main PID: 19787 (sshd)
-      Tasks: 1 (limit: 6808)
-     Memory: 2.2M (peak: 3.4M)
-        CPU: 201ms
-     CGroup: /system.slice/ssh.service
-             └─19787 "sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups"
