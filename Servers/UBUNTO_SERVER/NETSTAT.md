@@ -1,0 +1,8 @@
+# NETSTAT (NETWORK STATISTICS) 
+Netstat é uma ferramenta ultilizada para monitorar e diagnosticar as conexoes de rede em um computador. Ela exibe informações detalhadas sobre conexoes de rede, portas de escuta, tabelas de roteamento e esztatistica de rede.
+
+- Exibe todas as conexões de redes ativas, tanto entrada quanto saida.
+- Mostra quais portas estão abertas e a espera de conexão.
+- Exibe a tabela de roteamento, que mostra como os pacotes são encaminhados pelo sistema.
+- Fornece estatisticas detalhadas sobre o uso de protocolos, como TCP, UDP, ICMP e IP.
+- Mostra quais processos estao associais a cada conexao de rede, permite identificar programas especificos que estao usando a rede.
