@@ -63,3 +63,6 @@ wget Ip-ou-dominio/arquivo-a-ser-baixado
 grep "nome_a_ser_buscado"
 :" è uma ferramenta de linha que busca padrões em arquivo de texto, como palavras chave
 ou expressoes regulares."
+
+w
+:"Exibe todos os usuarios logados no sistema, além de informações de data e hora do log"
