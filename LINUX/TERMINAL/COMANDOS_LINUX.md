@@ -57,7 +57,7 @@
 
 10. w (who):
 - `w`: Esse comando basicamente mostra todos os usuarios ativos no sistema operacional. 
-### As informações mostradas são:
+###### As informações mostradas são:
 - [x] Nome do usuario: Nomes dos usuarios conectados.
 - [x] TTY: Terminal que o usuario esta usando.
 - [x] From: O ip e porta da conexao remota.
@@ -67,7 +67,7 @@
 - [x] PCPU: Tempo de CPU utilizado pelo processo atual.
 - [x] what: o comando ou o processo que o usuario esta executando.
 
-### Exemplo de saida de comando:
+###### Exemplo de saida de comando:
 ```
  16:10:07 up 2 days,  3:44,  3 users,  load average: 0.09, 0.03, 0.01
 USER     TTY      FROM              LOGIN@   IDLE   JCPU   PCPU WHAT
@@ -76,3 +76,6 @@ bob      pts/1    :0                10:15    5:01   1:01   0.00s vi
 carol    pts/2    192.168.1.3       14:30    0.00s  0.45s  0.10s top
 
 ```
+
+- `w -h`: Exibe a saida limitando informações. Pode ser util se houver muitos usuario.
+- `w -s`: Exibir informações simplificadas.
