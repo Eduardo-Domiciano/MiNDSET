@@ -34,20 +34,45 @@
 - `sort -r arquivo.txt`: Ordena em ordem reversa.
 - `sort -k 2 arquivo.txt`: Ordena com base em uma coluna especifica.
 
-7. uniq:
+7. Uniq:
 - `uniq arquivo.txt`: Remove linhas duplicadas consecutivas. Melhor usado em conjunto com o comando `sort`.
 - `uniq -d arquivo.txt`: Exibe apenas as linhas duplicadas.
 - `uniq -u arquivo.txt`: Exibe apenas as linhas unicas.
 - `uniq -c arquivo.txt`: Conta a frequencia de linhas.
 - `uniq -i arquivo.txt`: Ignora a diferença entre maiusculas e minusculas.
 
+8. GNU wget (world Wide web Get):
+- `wget http://exemplo.com/arquivo.zip`: Baixa um arquivo de uma pagina web.
+- `wget -r http://exemplo.com/diretorio/`: Baixa um diretorio inteiro.
+- `wget -c http://exemplo.com/arquivo.zip`: Continua um download interrompido.
 
-wget Ip-ou-dominio/arquivo-a-ser-baixado
-:"Esse comando é usado para fazer donload de arquivos"
+9. Global Regular Expression Print:
+- `grep "palavra-buscada" arquivo.txt`: Busca uma palavra em um arquivo.
+- `grep "palavra-buscada" arquivo01.txt arquivo02.txt`: Busca uma palabra em ambos arquivos.
+- `grep -i "palavra-buscada" arquivo.txt`: Ignora diferença entre maiuscula e minuscula durante a busca.
+- `grep -n "palavra-buscada" arquivo.txt`: Mostra o numero da linha.
+- `grep -r "palavra-buscada" /caminho/do/diretorio`: Busca recursiva em diretorios.
+- `grep -v "palavra-buscada" arquivo.txt`: Mostrar linhas que nao contem o padrao buscado.
+- `grep -c "palavra-buscada" arquivo.txt`: Mostrar contagem de linhas que nao ontem o padrao buscado.
 
-grep "nome_a_ser_buscado"
-:" è uma ferramenta de linha que busca padrões em arquivo de texto, como palavras chave
-ou expressoes regulares."
+10. w (who):
+- `w`: Esse comando basicamente mostra todos os usuarios ativos no sistema operacional. 
+### As informações mostradas são:
+- [x] Nome do usuario: Nomes dos usuarios conectados.
+- [x] TTY: Terminal que o usuario esta usando.
+- [x] From: O ip e porta da conexao remota.
+- [x] LOGIN@: hora que o usuario fez o login.
+- [x] IDLE: Tempo de inatividade do usuario.
+- [x] JCPU: Tempo total de CPU ultilizado pelos processos do usuario, incluindo os processos de segundo plano.
+- [x] PCPU: Tempo de CPU utilizado pelo processo atual.
+- [x] what: o comando ou o processo que o usuario esta executando.
 
-w
-:"Exibe todos os usuarios logados no sistema, além de informações de data e hora do log"
+### Exemplo de saida de comando:
+```
+ 16:10:07 up 2 days,  3:44,  3 users,  load average: 0.09, 0.03, 0.01
+USER     TTY      FROM              LOGIN@   IDLE   JCPU   PCPU WHAT
+alice    pts/0    192.168.1.2       09:23    1:23m  0.23s  0.09s bash
+bob      pts/1    :0                10:15    5:01   1:01   0.00s vi
+carol    pts/2    192.168.1.3       14:30    0.00s  0.45s  0.10s top
+
+```
