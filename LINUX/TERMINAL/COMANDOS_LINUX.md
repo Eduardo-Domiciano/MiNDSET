@@ -2,6 +2,7 @@
 
 ### Comandos
 1. List. Checar arquivos e pastas do diretorio:
+
 `ls`
 `ls --help`: Ls documentation
 `ls -l`: Diretorios e arquivos em listas
