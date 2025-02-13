@@ -23,7 +23,7 @@ Uma matriz é uma coleção de numeros dispostos em um retangulo, chamados eleme
 
 ```
 
-Nessa matriz de exemplo, a_{ij} representam o elemento na linha {i} e coluna {j}.
+Nessa matriz de exemplo, Aij representam o elemento na linha {i} e coluna {j}.
 
 ### 2. Operação com matrizes:
 - Adição: Duas matrizes podem ser somadas se tiverem o mesmo tamanho, somando elemento a elemento
@@ -31,20 +31,47 @@ Nessa matriz de exemplo, a_{ij} representam o elemento na linha {i} e coluna {j}
 - Multiplicação de matrizes: Multiplicar duas matrizes envolve somar os produtos das linhas de uma matriz com as colunas da outra. As matrizes devem ter dimensões compativeis.
 
 ### 3. Tipos especificos de matrizes:
-- Matriz identidade: Uma matriz quadrada onde os elementos da diagonal principal são 1 e os outros são 0.
+- Matriz quadrada: Quando a matriz apresenta o mesmo numero de linhas e colunas.
 
+```
+|1 0 |
+|0 1 |
+```
+- Matriz diagonal: Uma matriz qiadrada onde todos os elementos fora da diagonal principal são zero.
 ```
 |1 0 0|
 |0 1 0|
 |0 0 1|
 ```
-- Matriz diagonal: Uma matriz qiadrada onde todos os elementos fora da diagonal principal são zero.
 - Matriz Transposta: A matriz obtida ao trocar as linhas e colunas de uma matriz original.
 
 ```
 |a b| => |a c|
 |c d|    |b d|
 ```
+- Matriz retangular: Uma matriz em que o numero de linhas difere do numero de colunas.
+````
+A = |1 5 6|;    B |1 3|
+    |5 6 7|       |6 4|
+                  |8 7|
+````
+- Matriz de linha e uma matriz coluna: Uma matriz linha é uma que tem apenas uma linha, e uma matriz coluna é uma que contem apenas uma coluna.
+```
+A = |1 2|; B = |5|
+               |2|
+```
+- Matriz unidade ou identidade: é uma matriz quadrada em que os elementos da diagonal principal são iguais a 1 e os que estao fora são igual a zero.
+```
+|1 0|
+|0 1|
+```
+- Matriz triangular superior e matriz triangular inferior:
+```
+A = |3 9|;    B= |1 0 0|
+    |0 8|        |5 4 0|
+                 |3 0 7|
+```
+
 
 ### 4. Aplicações:
 - Sistemas de equações lineares: Resolver multiplas equações simultaneas.
