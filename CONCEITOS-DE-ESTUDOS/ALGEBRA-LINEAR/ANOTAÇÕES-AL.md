@@ -31,4 +31,4 @@ a_{31} & a_{32} & a_{33}
 
 ```
 
-Nessa matriz de exemplo, `a_{ij}` representam o elemento na linha i e coluna j.
+Nessa matriz de exemplo, a_{ij} representam o elemento na linha i e coluna j.
