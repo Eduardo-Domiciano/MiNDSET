@@ -40,6 +40,17 @@ A =|1 2| + B = |5 6|    C = |1+5 2+6|== | 6  8|
 
 ![multiplicacao escalar](./img/multiplicacao-escalar.png)
 
+- Transposição de matrizes: A transposição de matrizes envolve trocar suas linhas por culonas.
+````
+A = |1 2 3|;      B |1 4|
+    |4 5 6|   =>    |2 5|
+                    |3 6|
+````
+- Inversao de matrizes: A inversão de uma matriz A é uma matriz A-¹ que resulta na matriz identidade I. Nem todas as matrizes tem inversa, para isso ela deve ser uma matriz quadrada, ou seja, ter o mesmo numero de linhas e colunas e deve ter uma determinante diferente de zero.
+
+![inversao de matriz](./img/matriz-inversa.png)
+
+
 ### 3. Tipos especificos de matrizes:
 - Matriz quadrada: Quando a matriz apresenta o mesmo numero de linhas e colunas.
 
