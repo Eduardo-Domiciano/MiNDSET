@@ -1,6 +1,6 @@
 # Anotações sobre meus estudos de algebra linear
 
-Algebra Linear é um ramo da matemática que lida com veotres, matrizes e transformações lineares. É fundamental em muitas areas, como física, engenharia, ciencia da computação, economia e estatistica.
+Algebra Linear é um ramo da matemática que lida com vetores, matrizes e transformações lineares. É fundamental em muitas areas, como física, engenharia, ciencia da computação, economia e estatistica.
 
 ### Conceitos chave em Algebra Linear.
 - Vetores: Objetos que tem megnitude e direção. Eles podem ser representados em várias dimensões.
@@ -26,9 +26,19 @@ Uma matriz é uma coleção de numeros dispostos em um retangulo, chamados eleme
 Nessa matriz de exemplo, Aij representam o elemento na linha {i} e coluna {j}.
 
 ### 2. Operação com matrizes:
-- Adição: Duas matrizes podem ser somadas se tiverem o mesmo tamanho, somando elemento a elemento
-- Multiplicação por escalar: Multiplicar cada elemento da matriz por um numero (escalar).
-- Multiplicação de matrizes: Multiplicar duas matrizes envolve somar os produtos das linhas de uma matriz com as colunas da outra. As matrizes devem ter dimensões compativeis.
+- Adição: Duas matrizes só podem ser somadas se tiverem o mesmo tamanho, somando elemento a elemento
+````
+A =|1 2| + B = |5 6|    C = |1+5 2+6|== | 6  8|
+   |3 4|       |7 8|        |3+7 4+8|   |10 12|
+````
+- Multiplicação de matrizes: As duas matrizes só podem ser multiplicadas se o numero de colunas da matriz "A" for o mesmo do numero de linhas da matriz "B". Multiplique o primeiro elemento da primeira linha, com o primeiro
+
+![multiplicacao de matrizes](./img/multiplicação%20de%20matrizes.gif)
+
+
+- Multiplicação por escalar: A multiplicação escalar envolve um unico numero (escalar) e uma matriz. Cada elemento da matriz é multuiplicado pelo escalar.
+
+![multiplicacao escalar](./img/multiplicacao-escalar.png)
 
 ### 3. Tipos especificos de matrizes:
 - Matriz quadrada: Quando a matriz apresenta o mesmo numero de linhas e colunas.
@@ -77,3 +87,6 @@ A = |3 9|;    B= |1 0 0|
 - Sistemas de equações lineares: Resolver multiplas equações simultaneas.
 - Transformações Lineares: Rotacionar, escalar e transformar vetores.
 - Ciencia da computaç~eo e engenharia: Usadas em graficos de computadores, aprendizado de maquina e otimizaçao.
+
+
+### 5. 
