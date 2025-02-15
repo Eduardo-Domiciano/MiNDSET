@@ -25,6 +25,8 @@ Uma matriz é uma coleção de numeros dispostos em um retangulo, chamados eleme
 
 Nessa matriz de exemplo, Aij representam o elemento na linha {i} e coluna {j}.
 
+![elementos da matriz](./img/elemento-matriz.png)
+
 ### 2. Operação com matrizes:
 - Adição: Duas matrizes só podem ser somadas se tiverem o mesmo tamanho, somando elemento a elemento
 ````
@@ -100,4 +102,21 @@ A = |3 9|;    B= |1 0 0|
 - Ciencia da computaç~eo e engenharia: Usadas em graficos de computadores, aprendizado de maquina e otimizaçao.
 
 
-### 5. 
+## Determinantes:
+O determinante é uma função matemática associada a matrizes quadradas (matrizes com o mesmo numero de linhas e colunas) em algebra linear. Ele é um valor escalar que pode ser usado para determinar certas propriedades da matriz, como a invertibilidade (se a matriz tem ou nao ma inversa).
+
+![regra de definição de determinante](./img/regra-definicao-determinante.png)
+
+Para matrizes maiores que 3x3, o determinante pode ser calculado ultilizando a regra de Laplace ou expansão em cofatores. Este método envolve dividir a matriz em submatrizes menores até que possamos aplicar as definições anteriores.
+
+![determinantes maiores que 3x3](./img/determinante-maiores-3x3.png)
+
+### Menor complementar
+O menor complementar esta relacionado a forma de calcular o determinante de matrizes de uma ordem superior.
+
+
+### Definindo o menor complementar
+O menor completmentar de um elemento a_(ij) de uma matriz é o determinante da submatriz que resulta da exclusão da linha i e da coluna j onde o elemento a_(ij) esta localizado. Em outras palavras, para encontrar o menor complementar de um elemento em uma matriz, você deve remover a linha e a coluna desse elemento e calcular o determinante da matriz menor resultante.
+
+![determinantes maiores que 3x3](./img/menor-complementar.png)
+
