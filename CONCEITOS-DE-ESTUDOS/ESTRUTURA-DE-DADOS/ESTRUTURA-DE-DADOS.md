@@ -103,3 +103,104 @@ int main() {
 }
 
 ````
+### Vantagens:
+
+- Facilidade de implementação
+- Apesar de simples, pode ser ultilizado para problemas mais complexos, dependendo do tamnho da lista.
+
+### Desvantagens:
+
+- Alto custo de remoção e inserção;
+- Nescessidade de conhecer o tamanho da lista no momento da inicializaçao.
+
+### Lista de alocação dinamica
+
+Uma lista de alocação dinamica, frequentemente referida como lista ligada, é uma estrutura de dados que consiste em nós, onde cada nó contém dados e uma referencia (ou ponteiro) para o proximo nó na sequencia. Ao contrário de um vetor, que requer um tamanho fixo, uma lista ligada permite alocação e desalocação dinamica de memoria, o que torna  essa estrutura flexivel em termos de tamanho.
+
+### Tipos de listas ligadas:
+
+- Listas simplesmente liugada: Cada nó contem um valor e uma referencia para o proximo nó. A cabeça ou o inicio da lista é um ponteiro para o proximo nó. A ultima referencia do nó é null, indicando o fim da lista.
+
+- Lista duplamente ligada: Cada nó contém um valor, uma referencia para o proximo nó e uma referencia para o nó anterior. Permite navegação bidirecional. A ultima referencia de nó é null.
+
+- Lista circular: Semelhante a listas ligadas, mas a referencia do ultimo nó aponta de volta para o primeiro nó, formando um circulo.
+
+### Exemplo de implementação de lista simplesmente ligada em C++
+
+````
+#include <iostream>
+using namespace std;
+
+// Definição do nó: Estrutura basica que contem o valor e o ponteiro para o proximo nó.
+struct Nodo {
+    int valor;
+    Nodo* proximo;
+};
+
+class ListaLigada {
+private:
+    Nodo* cabeca;
+
+public:
+    // Construtor: Inicializa a lista com a cabeça como nullptr.
+    ListaLigada() {
+        cabeca = nullptr;
+    }
+
+    // Destrutor: Libera a memoria alocada para os nós da lista.
+    ~ListaLigada() {
+        Nodo* atual = cabeca;
+        Nodo* proximo;
+        while (atual != nullptr) {
+            proximo = atual->proximo;
+            delete atual;
+            atual = proximo;
+        }
+    }
+
+    // Inserir no início: Cria um novo nó e o adiciona no fim da lista.
+    void inserirInicio(int valor) {
+        Nodo* novoNodo = new Nodo();
+        novoNodo->valor = valor;
+        novoNodo->proximo = cabeca;
+        cabeca = novoNodo;
+    }
+
+    // Remover do início: Remove o nó do inicio da lista e ajusta a cabeça.
+    void removerInicio() {
+        if (cabeca != nullptr) {
+            Nodo* temp = cabeca;
+            cabeca = cabeca->proximo;
+            delete temp;
+        }
+    }
+
+    // Exibir lista: Percorre e exibe todos os valores da lista.
+    void exibir() {
+        Nodo* atual = cabeca;
+        while (atual != nullptr) {
+            cout << atual->valor << " -> ";
+            atual = atual->proximo;
+        }
+        cout << "NULL" << endl;
+    }
+};
+
+int main() {
+    ListaLigada lista;
+
+    lista.inserirInicio(10);
+    lista.inserirInicio(20);
+    lista.inserirInicio(30);
+
+    cout << "Lista após inserções: ";
+    lista.exibir();
+
+    lista.removerInicio();
+    cout << "Lista após remoção: ";
+    lista.exibir();
+
+    return 0;
+}
+
+````
