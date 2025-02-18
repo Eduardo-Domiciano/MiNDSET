@@ -212,3 +212,92 @@ int main() {
 ### Desvantagens:
 
 - Não possivel acessar diretamente um elemento, a lista precisa ser percirrida sempre a partir do primeiro.
+
+## Pilha:
+
+Pilhas (ou stacks, em ingles), é uma estrutura de dados fundamental que segue o principio LIFO (Last In, First Out), ou seja, o ultimo elemento a entrar é o ultimo a sair.
+
+### Conceito:
+
+Uma pilha é uma coleção de elementos que permite inserções (push) e remoções (pop) apenas no topo da estrutura. Imagine uma pilha de pratos: você coloca um novo prato no topo da pilha e também remove o prato topo quando precisa de um.
+
+### Implementação da pilha:
+````
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class Pilha {
+private:
+    vector<int> vetor; // Vetor para armazenar os elementos
+
+public:
+    // Construtor: Inicializa a pilha.
+    Pilha() {}
+
+    // Push: Adicionar elemento ao topo
+    void push(int elemento) {
+        vetor.push_back(elemento);
+    }
+
+    // Pop: Remover e retornar elemento do topo, verificando se a pilha ta vazia.
+    int pop() {
+        if (!vetor.empty()) {
+            int topo = vetor.back();
+            vetor.pop_back();
+            return topo;
+        } else {
+            cout << "Pilha vazia!" << endl;
+            return -1; // Valor de erro
+        }
+    }
+
+    // Peek/Top: Retornar elemento do topo sem remove-lo, verificando se a pilha ta vazia.
+    int top() {
+        if (!vetor.empty()) {
+            return vetor.back();
+        } else {
+            cout << "Pilha vazia!" << endl;
+            return -1; // Valor de erro
+        }
+    }
+
+    // IsEmpty: Verificar se a pilha está vazia
+    bool isEmpty() {
+        return vetor.empty();
+    }
+
+    // Size: Retornar o número de elementos na pilha
+    int size() {
+        return vetor.size();
+    }
+};
+
+int main() {
+    Pilha pilha;
+
+    pilha.push(10);
+    pilha.push(20);
+    pilha.push(30);
+
+    cout << "Topo da pilha: " << pilha.top() << endl;
+    cout << "Tamanho da pilha: " << pilha.size() << endl;
+
+    cout << "Removendo elemento do topo: " << pilha.pop() << endl;
+    cout << "Topo da pilha após remoção: " << pilha.top() << endl;
+    cout << "Tamanho da pilha após remoção: " << pilha.size() << endl;
+
+    return 0;
+}
+
+````
+
+### Vantagens:
+
+- Simples e facil de implementar.
+- Útil em varias situações, como na avaliação de expressões aritiméticas e na implementação de chamadas recursivas.
+
+### Desvantagens:
+
+- Não permite acesso aleatório a elementos (apenas o elemento do topo é acessivel diretamente).
+
