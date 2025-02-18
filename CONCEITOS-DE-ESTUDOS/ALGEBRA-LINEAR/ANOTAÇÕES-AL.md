@@ -151,3 +151,4 @@ A partir dessa matriz "A_(ij)", vamos encontrar o cofator do elemento na posiç�
 Então, o cofator do elemento 5 na matriz A é -12. Isso pode ser visto dessa forma:
 
 ![visao simplificada do resultado](./img/calculando-cofator-05.png)
+
