@@ -204,3 +204,11 @@ int main() {
 }
 
 ````
+
+### Vantagens: 
+- Baixo custo para inserir e remover elementos. 
+- Não existe a nescessidade de alocar previamente o tamanho da lista.
+
+### Desvantagens:
+
+- Não possivel acessar diretamente um elemento, a lista precisa ser percirrida sempre a partir do primeiro.
