@@ -406,10 +406,6 @@ int main() {
 Uma fila (ou queue, em ingles) é uma estrutura de dados que segue o principio FIFO ( first In, First Out), ou seja, o primeiro elemento a entrar é o primeiro a sair. Pense em uma fila de pessoas esperando para serem atendidas: A primeira pessoa a entrar na fila é a primeira a ser atendida.
 
 
-### Filas Circulares:
-
-Uma fila circular é uma variação da fila linear onde o ultimo elemento aponta de volta para o primeiro elemento, formando um circulo. Isso permite uma ultilização mais eficiente do espaço, especialmente quando a fila é implementada com um vetor.
-
 ### IMplementando fila em C++
 
 ````
@@ -500,6 +496,9 @@ int main() {
 }
 
 ````
+### Filas Circulares:
+
+Uma fila circular é uma variação da fila linear onde o ultimo elemento aponta de volta para o primeiro elemento, formando um circulo. Isso permite uma ultilização mais eficiente do espaço, especialmente quando a fila é implementada com um vetor.
 
 ### Implementando fila circular em C++:
 ````
