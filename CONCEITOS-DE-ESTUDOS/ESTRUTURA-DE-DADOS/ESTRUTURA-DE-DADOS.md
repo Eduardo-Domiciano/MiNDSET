@@ -213,7 +213,7 @@ int main() {
 
 - Não possivel acessar diretamente um elemento, a lista precisa ser percirrida sempre a partir do primeiro.
 
-## Pilha:
+## Pilhas:
 
 Pilhas (ou stacks, em ingles), é uma estrutura de dados fundamental que segue o principio LIFO (Last In, First Out), ou seja, o ultimo elemento a entrar é o ultimo a sair.
 
@@ -300,4 +300,294 @@ int main() {
 ### Desvantagens:
 
 - Não permite acesso aleatório a elementos (apenas o elemento do topo é acessivel diretamente).
+
+### Pilha com ponteiro:
+
+Ao contrario de uma pilha baseada em vetor, onde o tamanho da pilha é fixo ou precisa ser ajustado manualmente, uma pilha baseado em ponteiros pode se ajustar automaticamente a quantidade de elementos armazenados.
+
+### implementando a pilha usando ponteiros
+
+````
+#include <iostream>
+using namespace std;
+
+// cada nó contem um valor e um pontiero para a proxima pilha.
+struct Nodo {
+    int valor;
+    Nodo* proximo;
+};
+
+class Pilha {
+private:
+    Nodo* topo; // Ponteiro para o topo da pilha
+
+public:
+    // Construtor: Inicializa a pilha como topo e aponta para nullptr
+    Pilha() {
+        topo = nullptr;
+    }
+
+    // Destrutor: Limpa todos os nós da pilha quando o objeto é destruido.
+    ~Pilha() {
+        while (!isEmpty()) {
+            pop();
+        }
+    }
+
+    // Push: Cria um novo nó, define seu valor e ajusta o ponteiro "topo" para apontar a este novo nó.
+    void push(int elemento) {
+        Nodo* novoNodo = new Nodo();
+        novoNodo->valor = elemento;
+        novoNodo->proximo = topo;
+        topo = novoNodo;
+    }
+
+    // Pop: remove o nó do topo, ajusta o ponteiro "topo" para o proximo nó e retorna o valor do nó removido.
+    int pop() {
+        if (!isEmpty()) {
+            Nodo* temp = topo;
+            int valor = topo->valor;
+            topo = topo->proximo;
+            delete temp;
+            return valor;
+        } else {
+            cout << "Pilha vazia!" << endl;
+            return -1; // Valor de erro
+        }
+    }
+
+    // Top: Retorna o valor do nó do topo sem remove-lo.
+    int top() {
+        if (!isEmpty()) {
+            return topo->valor;
+        } else {
+            cout << "Pilha vazia!" << endl;
+            return -1; // Valor de erro
+        }
+    }
+
+    // IsEmpty: Verificar se a pilha está vazia
+    bool isEmpty() {
+        return topo == nullptr;
+    }
+};
+
+int main() {
+    Pilha pilha;
+
+    pilha.push(10);
+    pilha.push(20);
+    pilha.push(30);
+
+    cout << "Topo da pilha: " << pilha.top() << endl;
+
+    cout << "Removendo elemento do topo: " << pilha.pop() << endl;
+    cout << "Topo da pilha após remoção: " << pilha.top() << endl;
+
+    return 0;
+}
+
+````
+
+### Vantagens:
+
+- Tamanho Dinamico: A pilha pode crescer e enconlher conforme necessario.
+- Inserções e remoções rápidas no topo.
+
+### Desvantagens:
+
+- Overhead adicional de memoria devido aos ponteiros.
+- Acesso mais lento a elemento que não estão no topo, pois precisa percorre a lista.
+
+
+## Filas
+
+### Fila
+Uma fila (ou queue, em ingles) é uma estrutura de dados que segue o principio FIFO ( first In, First Out), ou seja, o primeiro elemento a entrar é o primeiro a sair. Pense em uma fila de pessoas esperando para serem atendidas: A primeira pessoa a entrar na fila é a primeira a ser atendida.
+
+
+### Filas Circulares:
+
+Uma fila circular é uma variação da fila linear onde o ultimo elemento aponta de volta para o primeiro elemento, formando um circulo. Isso permite uma ultilização mais eficiente do espaço, especialmente quando a fila é implementada com um vetor.
+
+### IMplementando fila em C++
+
+````
+#include <iostream>
+#define TAMANHO_MAXIMO 100 // Tamanho máximo da fila
+
+using namespace std;
+
+class Fila {
+private:
+    int vetor[TAMANHO_MAXIMO];
+    int frente;
+    int traseira;
+    int tamanho;
+
+public:
+    // Construtor: Inicializa a fila com frente e traseira como -1, indicando que a fila esta vazia.
+    Fila() {
+        frente = -1;
+        traseira = -1;
+        tamanho = 0;
+    }
+
+    // Enqueue: Adicionar elemento ao final da fila, ajustando os indivces de traseira e verificando a condição de fial cheia.
+    void enqueue(int elemento) {
+        if ((traseira + 1) % TAMANHO_MAXIMO == frente) {
+            cout << "Fila cheia!" << endl;
+        } else {
+            if (frente == -1) frente = 0;
+            traseira = (traseira + 1) % TAMANHO_MAXIMO;
+            vetor[traseira] = elemento;
+            tamanho++;
+        }
+    }
+
+    // Dequeue: Remover e retornar elemento do início da fila, ajustando os indices de frente e traseira e verificando a condição de fila vazia.
+    int dequeue() {
+        if (frente == -1) {
+            cout << "Fila vazia!" << endl;
+            return -1; // Valor de erro
+        } else {
+            int elemento = vetor[frente];
+            if (frente == traseira) {
+                frente = -1;
+                traseira = -1;
+            } else {
+                frente = (frente + 1) % TAMANHO_MAXIMO;
+            }
+            tamanho--;
+            return elemento;
+        }
+    }
+
+    // Front: Retornar elemento do início sem remove, verificando a condição de fila vaziaa
+    int front() {
+        if (frente != -1) {
+            return vetor[frente];
+        } else {
+            cout << "Fila vazia!" << endl;
+            return -1; // Valor de erro
+        }
+    }
+
+    // IsEmpty: Verificar se a fila está vazia
+    bool isEmpty() {
+        return (frente == -1);
+    }
+
+    // Size: Retornar o número de elementos na fila
+    int size() {
+        return tamanho;
+    }
+};
+
+int main() {
+    Fila fila;
+
+    fila.enqueue(10);
+    fila.enqueue(20);
+    fila.enqueue(30);
+
+    cout << "Elemento na frente da fila: " << fila.front() << endl;
+
+    cout << "Removendo elemento da fila: " << fila.dequeue() << endl;
+    cout << "Elemento na frente da fila após remoção: " << fila.front() << endl;
+
+    return 0;
+}
+
+````
+
+### Implementando fila circular em C++:
+````
+#include <iostream>
+#define TAMANHO_MAXIMO 5 // Tamanho máximo da fila
+
+using namespace std;
+
+class FilaCircular {
+private:
+    int vetor[TAMANHO_MAXIMO];
+    int frente;
+    int traseira;
+    int tamanho;
+
+public:
+    // Construtor
+    FilaCircular() {
+        frente = -1;
+        traseira = -1;
+        tamanho = 0;
+    }
+
+    // Enqueue: Adicionar elemento ao final da fila
+    void enqueue(int elemento) {
+        if ((traseira + 1) % TAMANHO_MAXIMO == frente) {
+            cout << "Fila cheia!" << endl;
+        } else {
+            if (frente == -1) frente = 0;
+            traseira = (traseira + 1) % TAMANHO_MAXIMO;
+            vetor[traseira] = elemento;
+            tamanho++;
+        }
+    }
+
+    // Dequeue: Remover e retornar elemento do início da fila
+    int dequeue() {
+        if (frente == -1) {
+            cout << "Fila vazia!" << endl;
+            return -1; // Valor de erro
+        } else {
+            int elemento = vetor[frente];
+            if (frente == traseira) {
+                frente = -1;
+                traseira = -1;
+            } else {
+                frente = (frente + 1) % TAMANHO_MAXIMO;
+            }
+            tamanho--;
+            return elemento;
+        }
+    }
+
+    // Front: Retornar elemento do início sem remover
+    int front() {
+        if (frente != -1) {
+            return vetor[frente];
+        } else {
+            cout << "Fila vazia!" << endl;
+            return -1; // Valor de erro
+        }
+    }
+
+    // IsEmpty: Verificar se a fila está vazia
+    bool isEmpty() {
+        return (frente == -1);
+    }
+
+    // Size: Retornar o número de elementos na fila
+    int size() {
+        return tamanho;
+    }
+};
+
+int main() {
+    FilaCircular fila;
+
+    fila.enqueue(10);
+    fila.enqueue(20);
+    fila.enqueue(30);
+
+    cout << "Elemento na frente da fila: " << fila.front() << endl;
+
+    cout << "Removendo elemento da fila: " << fila.dequeue() << endl;
+    cout << "Elemento na frente da fila após remoção: " << fila.front() << endl;
+
+    return 0;
+}
+
+````
 
