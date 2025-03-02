@@ -164,7 +164,7 @@ x - 2y + 4z = 10
 - Termno Independente: 10
 
 ### Coeficiente
-Os coeficientes são os numeros que multiplicam as variaveis em uma equação. No exemplo a cima, 2 e 4 são os coeficiente de y e z, respectivamente. Eles determinam a inclinação na linha do grafico.
+Os coeficientes são os numeros que multiplicam as variaveis em uma equação. No exemplo a cima, 1, 2 e 4 são os coeficiente de y e z, respectivamente. Eles determinam a inclinação na linha do grafico.
 
 ### Variaveis (Incognitas)
 As variáveis são os elementos desconhecidos que estamos tentando encontrar. No Exemplo anterior, x, y, z são essas variaveis. Em um sistema linear as variaveis podem ser qualquer numero e são os valores que satisfazem todas as equações do sistema simultaneamente.
@@ -174,3 +174,18 @@ O termo independente é o valor que aparece sozinho na equação, sem multiplica
 
 ### Solução da Equação
 A solução da equação é o conjunto de valores para as variaveis que tornam a equação verdadeira. Em um sistema de equações lineares, a solução é o conjunto de valores que satisfaz todas as equações do sistema ao mesmo tempo. Dependendo do sistema pode haver uma solução unica, infinitas ou nenhuma. Para encontrar a solução de um sistema linear pode ser usado métodos como substituição, eliminação ou matriz inversa.
+
+### Matriz completa
+Uma matriz completa (ou matriz aumentada) de um sistema linear é uma matriz que inclui tanto os coeficiantes das variaveis quanto os termos independentes das equações. Exemplo:
+
+![Matriz completa](./img/Matriz-completa.png)
+
+Os numeros a esquerda da barra representam os coeficientes das variaveis x e y, e os nmumeros á direita da barra representam os termos independentes.
+
+### Matriz incompleta
+
+Uma matriz incompleta (ou matriz dos coeficientes) inclui apenas os coeficientes das variaveis nas equações, sem os termos independentes. Ussando o mesmo exemplo:
+
+![Matriz incompleta](./img/matriz-incompleta.png)
+
+Ela considera apenas os coeficientes das variaveis x e y, ignorando os termos independentes.
