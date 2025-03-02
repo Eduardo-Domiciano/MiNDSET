@@ -189,3 +189,50 @@ Uma matriz incompleta (ou matriz dos coeficientes) inclui apenas os coeficientes
 ![Matriz incompleta](./img/matriz-incompleta.png)
 
 Ela considera apenas os coeficientes das variaveis x e y, ignorando os termos independentes.
+
+### Matriz Escalonada
+[Matriz escalonada: Artigo da UFSC em PDF](http://mtm.ufsc.br/~gatcosta/GA-Fis-e-Eng/Escalonamento.pdf)
+Uma matriz escalonada é uma matriz que tem forma  de um "degrau" ou "escada", onde cada linha subsequente possui pelo menos um zero a mais a esquerda do que a linha anterior. Criterios de uma matriz escalonada:
+
+- Linha nao nula: Se uma linha nao é inteiramente composta por zeros, o primeiro numero nao zero deve ser 1 (chamado de pivô).
+
+- Zeros abaixo do pivô: todos os numeros a baixo do pivô são zeros.
+
+- Posição dos pivos: O pivo de cada linha deve estar a direita do puivo da linha anterior.
+
+- Linhas nulas:n Qualquer linha que seja completamente composta de zeros deve estar na aprte inferior da matriz.
+````
+  1 2 3
+  0 1 4
+  0 0 1
+````
+
+### Solução de um sistema linear
+
+resolvendo um sistema linear:
+
+- Escreva a matriz aumentada
+````
+1 2 | 1
+2 4 | 7
+````
+
+- Aplique transformações elementares de linha para obter uma matriz escalonada. Noso objetivo é zerar o elemento abaixo do pivô (primeiro elemento da primeira coluna).
+
+````
+1 2 | 1                                                1 2 | 1
+2 4 | 4    Aqui multiplicaremos a linha 2 por 1/2      1 2 | 2
+
+1 2 | 1                                                 1 2 | 1
+1 2 | 2    Aqui vamos subtrair a linha 2 pela linha 1   0 0 | 1
+
+````
+
+- Observação: Aqui percebemos que o resultado da segunda linha é 0 = 1, o que é uma contradição. Isso significa que o resultado da contradição é inconsistente e nao tem solução.
+
+-  Vamos reproduzir  o sistema linear a partir da matriz escalonada.
+````
+  x + 2.y = 1
+0.x + 0.y = 1
+````
+Isso significa que o sistema linear aui apresentado nao tem solução.
