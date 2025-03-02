@@ -152,3 +152,25 @@ Então, o cofator do elemento 5 na matriz A é -12. Isso pode ser visto dessa fo
 
 ![visao simplificada do resultado](./img/calculando-cofator-05.png)
 
+## Sistema Línear
+
+Um sistema linear consiste em um conhjunto de equações lineares que tem variáveis desconhecidas em comum. Basicamente, você esta procurando valores que satisfaçam todas as equações ao mesmo tempo. Aqui está um exemplo simples de um sistema linear:
+
+````
+x - 2y + 4z = 10
+````
+- Variaveis: x, z, e y
+- Coeficientes: 2, 4
+- Termno Independente: 10
+
+### Coeficiente
+Os coeficientes são os numeros que multiplicam as variaveis em uma equação. No exemplo a cima, 2 e 4 são os coeficiente de y e z, respectivamente. Eles determinam a inclinação na linha do grafico.
+
+### Variaveis (Incognitas)
+As variáveis são os elementos desconhecidos que estamos tentando encontrar. No Exemplo anterior, x, y, z são essas variaveis. Em um sistema linear as variaveis podem ser qualquer numero e são os valores que satisfazem todas as equações do sistema simultaneamente.
+
+### Termo Independente
+O termo independente é o valor que aparece sozinho na equação, sem multiplicação por uma variavel. No exemplo dado, 10 é o termo independente. Este valort determina a interseção da linha do eixo correspondente no grafico.
+
+### Solução da Equação
+A solução da equação é o conjunto de valores para as variaveis que tornam a equação verdadeira. Em um sistema de equações lineares, a solução é o conjunto de valores que satisfaz todas as equações do sistema ao mesmo tempo. Dependendo do sistema pode haver uma solução unica, infinitas ou nenhuma. Para encontrar a solução de um sistema linear pode ser usado métodos como substituição, eliminação ou matriz inversa.
