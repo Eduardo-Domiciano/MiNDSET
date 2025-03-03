@@ -236,3 +236,114 @@ resolvendo um sistema linear:
 0.x + 0.y = 1
 ````
 Isso significa que o sistema linear aui apresentado nao tem solução.
+
+### Teorema de Rouché-Capelli
+
+O teorema de Rouche-Capelli afirma que um sistema de equalções lineares tem solução se, e somente se, o posto da matriz dos coeficientes (matriz incompleta) é igual ao posto da matriz aumentada (matriz completa) é igual ao posto da matriz aumentada (matriz completa). Se os postos são iguais, entao o sistema tem uma ou infinitas soluções; se os postos são diferentes, o sistema nao tem solução.
+
+- Exemplo:
+````
+x + 2y+ z = 1
+2x + 3y +z = 2
+3x + 5y +2z = 3
+````
+
+- Matriz incompleta:
+````
+1 2 1
+2 3 1
+3 5 2 
+````
+
+- Matriz completa
+````
+1 2 1 | 1
+2 3 1 | 2
+3 5 2 | 3
+````
+### O posto da matriz
+O poto da matriz é o numero de linhas  (ou colunas) linearmente independente em uma matriz. Em outras palavras, o posto indica a dimensão do espaço gerado pelas linhas (ou colunas) da matriz. O conceito de posto é fundamental na algebra linear, pois ajuda a determinar várias propriedades das matrizes e dos sistemas de equalções lineares.
+
+### determinando o posto da matriz
+
+Para encontrar o psoto de uma matriz, geralmente transformamos a matriz em sua forma escalonada (ou escalonada reduzida) por meio de operações elementares de linha. O numero de linha nao nulas na matriz escalonada é o posto da matriz.
+
+![calculando o posto da matriz](./img/posto-de-uma-matriz.png)
+
+- Posto Completo: Uma matriz tem posto completo se o posto for igual ao menor valor entre o numero de linhas e colunas da matriz. Nesse caso, a matriz é de posto completo.
+
+- Posto incompleto: Se o posto for menor que o menor valor entre o numero de linhas e colunas, a matriz é de postto incompleto.
+
+### Calcular os postos das matrizes:
+Para calcular o posto, transformamos as matrizes em suas formas escalonadas.
+
+- matriz completa escalonada
+````
+1  2  1
+0 -1 -1
+0  0  0
+````
+O posto da matriz imcompleta A é 2 (duas linhas nao nulas).
+- Matriz incompleta escalonada
+````
+1  2  1  |  1
+0 -1 -1  |  0
+0  0  0  |  0
+````
+O posto da matriz completa  também é 2 (duas linhas nao nulas)
+
+### Aplicar o teorema de Rouche-capeli
+Como o posto da matriz dos coeficientes (2) é igual ao posto da matriz aumentada (2), o sistema é compativel determinado (tem solução unica).
+
+- 1. Sistema Possivel e Determinado: Um sistema é possivel e determinado quando ele possui uma splução unica. Isso ocorre quando oi posto da matriz dos coeficientes (matriz incompleta) é igual ao posto da matriz completa, e esse posto é igual ao numero de variaveis do sistema. Considere o exemplo:
+````
+   x +  y =  2
+  2x -  y =  1
+
+A matriz dos coeficientes e a matriz aumentada são:
+  1  1
+  2 -1
+e
+  1  1  |  2
+  2 -1  |  1
+````
+
+O posto de ambas as matrizes é 2, igual ao numero de variaveis (2), entao o sistema tem uma solução unicos.
+
+- 2. Sistema Possivel e Indeterminado: Um sistema possivel e indeterminado é quando ele possui infinitas soluções. Isso ocorre quando o posto matriz dos coeficientes é igual ao posto da matriz aumentada, mas esse posto é menor que o numero de variaveis do sistema.
+````
+   x +  y  =  2
+  2x -  2y =  2
+
+A matriz dos coeficientes e a matriz aumentada são:
+  1  1
+  2  2
+e
+  1  1  |  1
+  2  2  |  2
+````
+
+O posto de ambas as matrizes é 1 (menor que o numero de variaveis que é 2), entao o sistema tem nfinitas soluções. A equações são dependentes e representam a mesma reta.
+
+- 3. Sistema Impossivel
+Um sistema é impossivel quando ele não possui solução. isso ocorre quando o posro da matriz dos coeficientes pe diferente do posro da matriz aumentada.
+````
+   x +  y =  1
+   x -  y =  2
+
+A matriz dos coeficientes e a matriz aumentada são:
+  1  1
+  2  1
+e
+  1  1  |  1
+  2  1  |  2
+````
+
+O posto da matriz dos coeficientes é 1, mas o posto da matriz aumentada é 2, entao o sistema é inconsistente e nao temn solução. As equações representam retas paralelas que nunca se intersectam.
+
+- Sistema Possível e Determinado: Posto (matriz coeficientes) = Posto (matriz aumentada) = Número de variáveis
+
+- Sistema Possível e Indeterminado: Posto (matriz coeficientes) = Posto (matriz aumentada) < Número de variáveis
+
+- Sistema Impossível: Posto (matriz coeficientes) ≠ Posto (matriz aumentada).
+
