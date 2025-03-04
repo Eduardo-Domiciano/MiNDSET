@@ -237,7 +237,7 @@ resolvendo um sistema linear:
 ````
 Isso significa que o sistema linear aui apresentado nao tem solução.
 
-### Teorema de Rouché-Capelli
+## Teorema de Rouché-Capelli
 
 O teorema de Rouche-Capelli afirma que um sistema de equalções lineares tem solução se, e somente se, o posto da matriz dos coeficientes (matriz incompleta) é igual ao posto da matriz aumentada (matriz completa) é igual ao posto da matriz aumentada (matriz completa). Se os postos são iguais, entao o sistema tem uma ou infinitas soluções; se os postos são diferentes, o sistema nao tem solução.
 
@@ -347,3 +347,18 @@ O posto da matriz dos coeficientes é 1, mas o posto da matriz aumentada é 2, e
 
 - Sistema Impossível: Posto (matriz coeficientes) ≠ Posto (matriz aumentada).
 
+## Espaços Vetoriais
+
+Os Espaços Vetoriais são estruturas matemáticas fundamentais em algebra linear e em diversas áreas da ciência. Um espaço Vetorial é um conjunto de vetores que pode ser adicionados entre si e multiplicado por escalares, obedece a certas regras especificas.
+
+### Definição Formal
+
+Um espaço vetorial `V` sobre um corpo `K` (geralmente s numeros reais `R` ou os números omplexos `C`) é um conjunto de elementos cvhamados vetores, juntamente com duas operações: adição de vetores e multiplicação por escalares, que satisfazem os seguintes axiomas:
+
+- 1.Adição Comutativa: ` u + v = v + u ` para todos ` u, v, ∈ V `.
+- 2. Adição Associativa: `(u + v) + w = u + (v + w) ` para todos ` u, v, w, ∈ V `.
+- 3. Elemento Neutro da Adição: Existe um vetor zero `0 ∈ V` tal que `u + 0 = u` para todo `u ∈ V`.
+- 4. Elemento Inverso da Adição: Para cada vetor `v ∈ V`, existe um vetor `-u ∈ V` tal que `u + (-u) = 0`.
+- 5. Multiplicação por Escalar: `a(u + v) = au + av e (a + b)u = au + bu` para todos `a, b, ∈ K e u, v ∈ V`.
+- 6. Associatividade da Multiplicação por Escalar: `a(bu) = (ab)u ` para todos `a, b ∈ K e u ∈ V`.
+- 7. Elemento Neutro da Multiplicação por Escalar: `1u = u` para todos `u ∈ V`, onde `1` é o elemento neutro multiplicativo do corpo `K`.
