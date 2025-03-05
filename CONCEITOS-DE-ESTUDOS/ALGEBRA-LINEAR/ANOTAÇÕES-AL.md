@@ -375,3 +375,16 @@ Os espaços vetoriais têm várias propriedades fundamentais que são essenciais
 - 6. Fechamento sob a multiplicação por escalar: Para qualquer escalar `a (do corpo associado)` e qualquer vetor `v ∈ V`, o vetor `a * v` pertence a `V`.
 - 7. Distributividade do Escalar Sobre a Adição de Vetores: Para quaisquer escalares `a` e vetores `u, v ∈ V`, vale que `a * (u + v) = a.u + a * v`.
 - 8. Distributividade do escalar sobre a adição de escalares: Para quaisquer escalares `a, b` e vetor `v ∈ V` vale que `(a + b) * v = a * v + b * v.`.
+
+### Resolução de Exercicios Sobre Espaços Vetoriais
+
+- [v]A. O elemento neutro de um espaço vetorial é unico.
+- [v]B. Para qualquer numero α, temos que `α.0 = 0`.
+- [v]C. Quaisquer que sejam `a, b ∈ ℝ e v ∈ V`, temos que `(a - b) * v = a * v - b * v`.
+- [v]D. Sendo `α ∈ ℝ` e `v ∈ V`, a igualdade `α * v = 0`, só é valida se tivermos `α = 0` ou `v = 0`.
+- [v]E. O conjunto dos numeros reais é um espaço vetorial sobre ele mesmo.
+- [v]F. Para todo `v ∈ V, 0.v = 0`.
+- [v]G. Para todo `α ∈ ℝ` e todo `v ∈ V, (-α) * v = α * (-v) = - (αv)`.
+- [v]H. O conjunto M[m x n(ℝ)] é um espaço vetorial sobre ℝ.
+
+
