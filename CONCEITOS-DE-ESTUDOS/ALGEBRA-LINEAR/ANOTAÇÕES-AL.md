@@ -363,3 +363,15 @@ Um espaço vetorial `V` sobre um corpo `K` (geralmente s numeros reais `R` ou os
 - 6. Associatividade da Multiplicação por Escalar: `a(bu) = (ab)u ` para todos `a, b ∈ K e u ∈ V`.
 - 7. Elemento Neutro da Multiplicação por Escalar: `1u = u` para todos `u ∈ V`, onde `1` é o elemento neutro multiplicativo do corpo `K`.
 
+### Propriedades Fundamentais dos Espaços Vetoriais
+
+Os espaços vetoriais têm várias propriedades fundamentais que são essenciais para sua definição e uso. Essas propriedades garantem que os vetores em um espaço vetorial possam ser manipulados de forma consistente e previsível.
+
+- 1. Fechamento sob Adição: Para quais quer vetores `u,v ∈ V`, o vetor `u + v` também pertence a `V`.
+- 2. Comutativa da Adição: Para quaisquer vetores `u, v ∈ V`, vale que `u + v = v + u`.
+- 3. Associatividade da Adição: Para quaisquer vetores `u, v, w ∈ V`, vale que `(u + v) + w = u + (v + w)`.
+- 4. Existencia do Elemento Neutro da Adição: Existe um vetor `0 ∈ V` (chamado de vetor nulo) tal que para todo `v ∈ V, v + 0 = v`.
+- 5. Existencia do inverso aditivo: Para cada `v ∈ V`, exite um vetor `-v ∈ V` tal que `v + (-v) = 0`.
+- 6. Fechamento sob a multiplicação por escalar: Para qualquer escalar `a (do corpo associado)` e qualquer vetor `v ∈ V`, o vetor `a * v` pertence a `V`.
+- 7. Distributividade do Escalar Sobre a Adição de Vetores: Para quaisquer escalares `a` e vetores `u, v ∈ V`, vale que `a * (u + v) = a.u + a * v`.
+- 8. Distributividade do escalar sobre a adição de escalares: Para quaisquer escalares `a, b` e vetor `v ∈ V` vale que `(a + b) * v = a * v + b * v.`.
