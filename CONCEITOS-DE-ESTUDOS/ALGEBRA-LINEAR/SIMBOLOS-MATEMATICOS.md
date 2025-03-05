@@ -2,7 +2,7 @@
 
 ## Conjuntos Numéricos
 
-ℕ - Números naturais  
+- ℕ - Números naturais  
 Representa o conjunto dos números naturais: {0, 1, 2, 3, ...} (em alguns contextos, começa em 1). Usado em contagem e teoria dos números.
 
 - ℤ - Números inteiros  
@@ -74,7 +74,7 @@ Representa resistência elétrica ou conjuntos em teoria dos conjuntos.
 - `+` - Mais  
 Adição entre números ou vetores.
 
-− `-` Menos  
+-  `-` - Menos  
 Subtração ou indicação de inverso (ex.: −v-v-v).
 
 - `×` - Vezes  
