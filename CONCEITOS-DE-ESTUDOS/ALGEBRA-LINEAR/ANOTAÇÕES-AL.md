@@ -17,9 +17,9 @@ matrizes são tabelas de numeros organizadas em linhas e colunas. Elas são usad
 Uma matriz é uma coleção de numeros dispostos em um retangulo, chamados elementos, organizados em linhas (horizontais) e colunas (verticais).
 
 ```
-|a11 a12 a13|
-|a21 a22 a23|
-|a31 a32 a33|
+ Matriz A = |a11 a12 a13| Essa matriz pode ser chamada de A(m.n)
+            |a21 a22 a23| ou seja, a matriz A tem "m" linhas vezes "n" colunas.
+            |a31 a32 a33|
 
 ```
 
