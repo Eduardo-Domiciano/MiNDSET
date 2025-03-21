@@ -14,7 +14,7 @@ Algebra Linear é um ramo da matemática que lida com vetores, matrizes e transf
 matrizes são tabelas de numeros organizadas em linhas e colunas. Elas são usadas para representar sistemas de equações lineares, realizar transformações lineares e outras operações matematicas.
 
 ### 1. Definição
-Uma matriz é uma coleção de numeros dispostos em um retangulo, chamados elementos, organizados em linhas (horizontais) e colunas (verticais).
+Uma matriz é uma coleção de numeros dispostos em um retangulo, chamados elementos, organizados em "m" linhas (horizontais) e "n" colunas (verticais).
 
 ```
  Matriz A = |a11 a12 a13| Essa matriz pode ser chamada de A(m.n)
@@ -27,31 +27,7 @@ Nessa matriz de exemplo, Aij representam o elemento na linha {i} e coluna {j}.
 
 ![Elementos da matriz](./img/elemento-matriz.png)
 
-### 2. Operação com matrizes:
-- Adição: Duas matrizes só podem ser somadas se tiverem o mesmo tamanho, somando elemento a elemento
-````
-A =|1 2| + B = |5 6|    C = |1+5 2+6|== | 6  8|
-   |3 4|       |7 8|        |3+7 4+8|   |10 12|
-````
-- Multiplicação de matrizes: As duas matrizes só podem ser multiplicadas se o numero de colunas da matriz "A" for o mesmo do numero de linhas da matriz "B". Multiplique o primeiro elemento da primeira linha, com o primeiro
-
-![Multiplicacao de matrizes](./img/multiplicação%20de%20matrizes.gif)
-
-
-- Multiplicação por escalar: A multiplicação escalar envolve um unico numero (escalar) e uma matriz. Cada elemento da matriz é multuiplicado pelo escalar.
-
-![Multiplicacao escalar](./img/multiplicacao-escalar.png)
-
-- Transposição de matrizes: A transposição de matrizes envolve trocar suas linhas por culonas.
-````
-A = |1 2 3|;      B |1 4|
-    |4 5 6|   =>    |2 5|
-                    |3 6|
-````
-- Inversao de matrizes: A inversão de uma matriz A é uma matriz A-¹ que resulta na matriz identidade I. Nem todas as matrizes tem inversa, para isso ela deve ser uma matriz quadrada, ou seja, ter o mesmo numero de linhas e colunas e deve ter uma determinante diferente de zero.
-
-![Inversao de matriz](./img/matriz-inversa.png)
-
+Note que a matriz a cima tem 3 linhas e 3 colunas, sendenominada de matriz 3x3, ou matriz quadrada de ordem 3.
 
 ### 3. Tipos especificos de matrizes:
 - Matriz quadrada: Quando a matriz apresenta o mesmo numero de linhas e colunas.
@@ -60,7 +36,7 @@ A = |1 2 3|;      B |1 4|
 |1 0 |
 |0 1 |
 ```
-- Matriz diagonal: Uma matriz qiadrada onde todos os elementos fora da diagonal principal são zero.
+- Matriz diagonal: Uma matriz qiadrada onde todos os elementos fora da diagonal principal são zero. 3x2
 ```
 |1 0 0|
 |0 1 0|
@@ -94,6 +70,34 @@ A = |3 9|;    B= |1 0 0|
     |0 8|        |5 4 0|
                  |3 0 7|
 ```
+
+
+### 2. Operação com matrizes:
+- Adição: Duas matrizes só podem ser somadas se tiverem o mesmo tamanho, somando elemento a elemento
+````
+A =|1 2| + B = |5 6|    C = |1+5 2+6|== | 6  8|
+   |3 4|       |7 8|        |3+7 4+8|   |10 12|
+````
+- Multiplicação de matrizes: As duas matrizes só podem ser multiplicadas se o numero de colunas da matriz "A" for o mesmo do numero de linhas da matriz "B". Multiplique o primeiro elemento da primeira linha, com o primeiro
+
+![Multiplicacao de matrizes](./img/multiplicação%20de%20matrizes.gif)
+
+
+- Multiplicação por escalar: A multiplicação escalar envolve um unico numero (escalar) e uma matriz. Cada elemento da matriz é multuiplicado pelo escalar.
+
+![Multiplicacao escalar](./img/multiplicacao-escalar.png)
+
+- Transposição de matrizes: A transposição de matrizes envolve trocar suas linhas por culonas.
+````
+A = |1 2 3|;      B |1 4|
+    |4 5 6|   =>    |2 5|
+                    |3 6|
+````
+- Inversao de matrizes: A inversão de uma matriz A é uma matriz A-¹ que resulta na matriz identidade I. Nem todas as matrizes tem inversa, para isso ela deve ser uma matriz quadrada, ou seja, ter o mesmo numero de linhas e colunas e deve ter uma determinante diferente de zero.
+
+![Inversao de matriz](./img/matriz-inversa.png)
+
+### 3.
 
 
 ### 4. Aplicações:
