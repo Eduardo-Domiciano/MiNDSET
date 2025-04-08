@@ -1,21 +1,19 @@
 // Importa o módulo readline para entrada de dados no terminal
 const readline = require('readline');
 
-// Configura a interface de leitura
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
 });
 
-// Função para calcular a média de um array de números
+
 function calcularMedia(valores) {
     if (valores.length === 0) {
-        return 0; // Retorna 0 se não houver valores
+        return 0; 
     }
     const soma = valores.reduce((acumulador, valor) => acumulador + valor, 0);
     return soma / valores.length;
 }
-
 // Função para coletar valores do usuário
 function coletarValores(callback) {
     let valores = [];
@@ -36,15 +34,14 @@ function coletarValores(callback) {
                 } else {
                     console.log("Entrada inválida! Por favor, digite um número real (ex.: 3.14).");
                 }
-                perguntar(); // Continua pedindo mais valores
+                perguntar(); 
             }
         });
     }
 
-    perguntar(); // Inicia o processo de coleta
+    perguntar();
 }
 
-// Função principal
 function main() {
     console.log("Digite números reais para calcular a média.");
     coletarValores((valores) => {
@@ -53,10 +50,10 @@ function main() {
         } else {
             const media = calcularMedia(valores);
             console.log(`Valores inseridos: ${valores}`);
-            console.log(`Média: ${media.toFixed(2)}`); // Formata com 2 casas decimais
+            console.log(`Média: ${media.toFixed(2)}`); 
         }
     });
 }
 
-// Executa o programa
+
 main();

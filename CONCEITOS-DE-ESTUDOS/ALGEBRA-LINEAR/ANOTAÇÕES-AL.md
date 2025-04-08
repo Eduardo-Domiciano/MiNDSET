@@ -29,7 +29,7 @@ Nessa matriz de exemplo, Aij representam o elemento na linha {i} e coluna {j}.
 
 Note que a matriz a cima tem 3 linhas e 3 colunas, sendenominada de matriz 3x3, ou matriz quadrada de ordem 3.
 
-### 3. Tipos especificos de matrizes:
+### 2. Tipos especificos de matrizes:
 - Matriz quadrada: Quando a matriz apresenta o mesmo numero de linhas e colunas.
 
 ```
@@ -72,7 +72,7 @@ A = |3 9|;    B= |1 0 0|
 ```
 
 
-### 2. Operação com matrizes:
+### 3. Operação com matrizes:
 - Adição: Duas matrizes só podem ser somadas se tiverem o mesmo tamanho, somando elemento a elemento
 ````
 A =|1 2| + B = |5 6|    C = |1+5 2+6|== | 6  8|
@@ -97,7 +97,6 @@ A = |1 2 3|;      B |1 4|
 
 ![Inversao de matriz](./img/matriz-inversa.png)
 
-### 3.
 
 
 ### 4. Aplicações:
