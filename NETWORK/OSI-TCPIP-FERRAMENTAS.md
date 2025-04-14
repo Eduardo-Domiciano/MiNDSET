@@ -97,7 +97,7 @@ adiciona uma peça no final da transmissao, que é usada para verificar se os da
 Porque os dados nao podem ser interceptados e adulterados sem quebnrar o trailer. Todo esse processo é chamado de 
 encapsulamento. 
 
-![Modelo de endereçamento de IP.](../PENTEST/img/ENCAPSULAMENTO-THM.jpeg)
+![Modelo de endereçamento de IP.](../NETWORK/img/ENCAPSULAMENTO-THM.jpeg)
 
 Observe que os dados encapsilados recebem um nome diferente em diferentes etapas do processo. Nas camadas 7,6 e 5 os 
 dados são chamados simplesmente de dados. Na camada de transporte, os dados encapsulados são chamados de segmento ou 
@@ -116,13 +116,13 @@ conectado em rede, possa se comunicar com os demais.
 O modelo TCP/IP é, em muitos aspectos, muitos semelhantes ao modelo OSI.  Esse modelo consiste em 4 camadas: 
 aplicativo, Transporte, Internet e Interface de rede. Apesar de ter menos camadas, eles combrem a mesma gama de funções.
 
-![Modelo de endereçamento de IP.](../PENTEST/img/TCP-IP-MODEL-THM.png)
+![Modelo de endereçamento de IP.](../NETWORK/img/TCP-IP-MODEL-THM.png)
 
 O modelo OSI apesar de nao ser usado no mundo real, abrange melhor os aspectos que compoem as funbções dos protocolos 
 de transmissão. Desa forma todo o processo fica mais facil de ser analisado e compreendido. Se comparado os modelos, eles
 seriam colocados nessa foto da imagem abaixo:
 
-![Modelo de endereçamento de IP.](../PENTEST/img/IPv6-IPv4-COMPARACAO-THM.png)
+![Modelo de endereçamento de IP.](../NETWORK/img/IPv6-IPv4-COMPARACAO-THM.png)
 
 Ambos os modelo OSI e TCP/IP funcionam da mesma maneira, sendo adicionado um cabeçalho em cada passo no processo e o mesmo
 quando falando de desencapsulação. Visualmente, essa ideia de camadas facilita o entendimento, mas estamos falando de um
@@ -141,7 +141,7 @@ responderá enviando de volta um bit ACK, firmando a conexao. Uma vez que o hand
 e os dispositivos podem trocar informações de forma segura, se alguma informação se corromper durante a transmissão, esse 
 pacote corrompido é reenviado.
 
-![Modelo de endereçamento de IP.](../PENTEST/img/handshake-model-thm.png)
+![Modelo de endereçamento de IP.](../NETWORK/img/handshake-model-thm.png)
 
 
 

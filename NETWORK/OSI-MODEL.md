@@ -4,7 +4,7 @@
 
 - O modelo OSI consiste em sete camadas, cada camada tem um conjunto de responsabilidades onde processos especificos ocorrem e informações são adicionadas a esses dados.
 
-![Modelo de endereçamento de IP.](../PENTEST/img/camadas-osi.png)
+![Modelo de endereçamento de IP.](../NETWORK/img/camadas-osi.png)
 
 ## Camada 7 Aplicação
 
