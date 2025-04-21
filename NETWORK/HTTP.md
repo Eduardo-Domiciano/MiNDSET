@@ -101,6 +101,8 @@ Content-Encoding: Qual metodo foi usado para compactar os dados enviados.
 ## Cookies
 
 Você provavelmente ja ouviu falar de cookies antes. Os Cookies sao salvos quando quando você recebe um cabeçalho "Set-Cookie" de um servidor web. Em seguida, a cada solicitação adicional que você fizer, você enviará dados de cookie para o servidor web. Os coockies podem ser usado para muitas finalidades, mas sao mais usados para autenticidades em sites.
+O valor do cookie geralmente é um token.
+
 
 
 
