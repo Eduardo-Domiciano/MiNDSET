@@ -29,3 +29,24 @@ Se quiser ver as permissões:
 ![Permissões NTFS 2](../WINDOWS/img/ntfs-permissions2.png)
 
 Outro recurso do NTFS é o Alternative Data Streams (ADS). O ADS é um atributo esécifico do windows NTFS. Cada arquivo tem pelo meno um fluxo de dados (`$DATA`), e o ADS permite que os arquivos contenham mais de um fluxo de dados. Nativamente o windows explorer não exibe ADS para o usuario. Existem executraveis de terceiro que podem visualizar esses dados, mas o power shell tem a capacidade de visualizar esses dados. Hacker criadores de malware usam ADS para ocultar dados. Você pode saber mais sobre malware com ADS [aqui](https://www.malwarebytes.com/blog/101/2015/07/introduction-to-alternate-data-streams).
+
+## Usuarios
+
+Existem dois tipos de contas no windows, Usuario padrão e Administrador. Cada tipo determina o que o usuario poderá executar no sistema.
+
+- Um administrador pode fazer alterações no sistema: Adicionar ususarios, excluir, modificar grupos, configuraçõesdo sistemas e etc.
+- Um usuario padrao só poderá fazer alterações em pastas/arquivos atribuidos ao usuario e nao pode fazer alterações no sistema, como instalar programas por exemplo.
+
+No menu de contas do windows, apenas o administrador poderá ver as opções de alterar tipo de conta, exluir, adicionar conta e etc. Cada usuario criado tera uma lista de pastas exclusivo para esse usuario especifico.
+- Área de trabalho
+- Documentos
+- Downloads
+- Musica
+- Fotos
+
+Outra forma de gerenciar ususarios é usar o "Gerenciamento de Usuarios e Grupos Locais". para acessar use Win + R e aparecerá a caixa de menu executar. Insira o comando `lusrmgr.msc`
+
+![Gerenciador-usuarios](../WINDOWS/img/GERENCIADOR-USUARIOS.png)
+
+Aqui há 2 pastas, Usuários e Grupos. Clicando em grupos, verá todos os grupos locais, juntamente com as descrições. Cada grupo tem permissões especificas definidas para eles, e os usuários são atribuidos a cada grupo pelo administrador. Quando um usuario é atribuido a um grupo, ele herda as pemissões desse grupo.
+
