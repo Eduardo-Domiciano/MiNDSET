@@ -15,7 +15,7 @@ Ao acessar um site, o navegador precisa fazer solicitaçpões a um servidor web,
 
 ### URL Uniform Resource Locator
 
-![Modelo de endereçamento de IP.](../NETWORK/img/URL.jpg.png)
+![Modelo de endereçamento de IP.](../NETWORK/img/URL.jpg)
 
 - Scheme: esse é o protocolo usado para acessar os recursos.
 - User: Login. Alguns serviços precisam de autenticação.
