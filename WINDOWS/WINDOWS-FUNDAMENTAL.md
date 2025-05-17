@@ -50,3 +50,21 @@ Outra forma de gerenciar ususarios é usar o "Gerenciamento de Usuarios e Grupos
 
 Aqui há 2 pastas, Usuários e Grupos. Clicando em grupos, verá todos os grupos locais, juntamente com as descrições. Cada grupo tem permissões especificas definidas para eles, e os usuários são atribuidos a cada grupo pelo administrador. Quando um usuario é atribuido a um grupo, ele herda as pemissões desse grupo.
 
+## UAC (User Account Control)
+
+A maioria dos usuarios domesticos do windows, usam o sistema como administradores locais. Como dito antes qualquer administrador local pode fazer alterações no sistema. Um usuario comum nao precisa ter o nivel de privilégio de um administrador, capaz de alterar o sistema ou fazer instalações de softwares duvidosos.
+
+### Executando como usuario
+
+Quando um usuario faz uma ação, essa ação é feita a partir dos privilégios desse usuario, ou seja, se ele nao tiver o privilégio de instalar um programa duvidoso ou nao, ele nao conseguirá fazer isso sem a autenticação de um usuario que tem esse privilégio.
+
+### UAC
+
+Para proteger o usuario local usando dessa limitação de privilegios, a microsoft introduziu o UAC (User Account Control). Introduzindo inicialmente no Windows Vista, se manteve nas versoes posteriores. O UAC obviamente nao se aplica ao Administrador, mas a todos os demais usuarios. 
+- Quando um usuario como administrador loga no sistema, ele nao loga com os privilegios de execução, se um software for instalado, um prompt aparece pedindo autorização para executar essas ações que requerem privilegios mais altos.
+
+- Quando um usuario padrão loga no sistema, sempre que algum software for instalado, um prompt vai aparecer pedindo uma senha para essa ação ser executada. Quando vc também nao esta lgado como usuario padrão, os icones que precisam ser executados como administrador tem o simbolo do escudo de segurança para alerta-lo da nescessidade desse priovilegio para executar essa ação.
+
+![icone com simbolo de segurança](../WINDOWS/img/exemplo-seguranca-administrador.png)
+
+O icone do escudo amarelo e azul indica a nescessidade de uma autorização de administrador para executar o arquivo.
