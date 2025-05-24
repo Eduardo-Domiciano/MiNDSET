@@ -100,3 +100,32 @@ Segue a janela de visualização de eventos.
 ![Janela de visualização de logs](../WINDOWS/img/janela-de-logs.png)
 
 ### Pastas Compartilhadas
+
+- Em pastas compartilhadas você pode ver pastas as pastas que uma maquina especifica compartilha na rede, podendo ser acessadas pelas demais. Eu ainda vou fazer um bloco de anotações aqui somente para compartilhamento de pastas. Explicando como funciona o compartilhamento, segurança e as configurações nescessárias.
+
+- Em sessão podemos ver os usuarios conectados ao compartilhamento no momento.
+
+- Em Arquivos abertos, todas as pastas ou arquivos que os usuarios conectados acessam , serão listados.
+
+### Usuarios e Grupos  (lusmgr.msc)
+
+Ja fiz anotações sobre isso aqui, no topico de usuarios. Mas futuramente devo complementar com mais informações aqui.
+
+### Desempenho  (perfmon)
+
+Essa ferramenta serve para ver dados de desempenho em tempo real ou de um arquivo de log. Bem útil para solucionar problemas de desempenho em sistema de computador, seja local ou remoto.
+
+### Gerenciador de dispositivo
+
+Essa ferramenta serve pra visualizar e configurar qualquer hardware conectado ao computador.
+
+### Repositório
+
+Em repositório esta o beckup do windows e o grenciamento de disco. Eu ainda vou estudar mais sobre isso pra fazer anotrações aqui.
+
+### Serviços e aplicações
+
+Aqui você pode ver serviços, habilitar e desabilitar. O interessante aqui é que cada serviço tem uma descrição de pra que ele é usado pelo sistema. É um bom lugar pra conferir serviços e como eles funcionam.
+
+## Informações do Sistema (msinfo32)
+
