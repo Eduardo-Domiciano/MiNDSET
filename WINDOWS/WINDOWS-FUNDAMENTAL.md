@@ -68,3 +68,35 @@ Para proteger o usuario local usando dessa limitação de privilegios, a microso
 ![icone com simbolo de segurança](../WINDOWS/img/exemplo-seguranca-administrador.png)
 
 O icone do escudo amarelo e azul indica a nescessidade de uma autorização de administrador para executar o arquivo.
+
+## Genrenciamento do computador
+
+O gerenciamento do computador pode ser acessado clicando com o botão direito do mause no botao iniciar do windows e selecionando "Gerenciamento do Computador". Ele tem 3 sessoes principais, Ferramentas do sistema, armazenamento e serviços de aplicativo.
+
+### Ferramentas do Sistema
+
+Começando com "Agendamento de tarefas". Essa ferramenta, permite que possamos criar e gerenciar tarefas que o computador realizra em hortarios especificos. Ele poderá executar  aplicativos, scrpts e etc., podendo ser programado para qualquer momento.
+
+### Visualizador de eventos
+
+Visualizador de eventos, nos permite ver registros de eventos que ocorreram no computador. Essas informações são uteis pra diagnosticar problemas  e investigar ações executadas no sistema.
+
+![Visualizador de Eventos](../WINDOWS/img/Visusalizador-de-eventos.png)
+
+- O painel a esquerda fonrcece uma lista hieraq2uica de arvores de provedores de logs de eventos.
+- O painel no meio exibirá uma visão geral e um resumo dos eventos especificos de um provedor selecionado.
+- O painel a direita é o painel de ações.
+
+Há cinco tipos de logs de eventos, descritos a baixo. Os tipos de logs, ficam na primeira coluna definidos como "Nivel". Imagem de https://learn.microsoft.com/en-us/windows/win32/eventlog/event-types
+
+![Tipos de logs de eventos](../WINDOWS/img/Tipos-de-eventos.png)
+
+Ja o padrao dos logs, define o contexto. Deixei em ingles, porque aparece em ingles na janela. Imagem de https://learn.microsoft.com/en-us/windows/win32/eventlog/eventlog-key
+
+![Contexto dos logs](../WINDOWS/img/Contexto-do-log.png)
+
+Segue a janela de visualização de eventos.
+
+![Janela de visualização de logs](../WINDOWS/img/janela-de-logs.png)
+
+### Pastas Compartilhadas
