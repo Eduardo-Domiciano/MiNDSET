@@ -129,3 +129,14 @@ Aqui você pode ver serviços, habilitar e desabilitar. O interessante aqui é q
 
 ## Informações do Sistema (msinfo32)
 
+O windows tem uma ferramenta chamada Microsoft System Informnation (msinfo32) capaz de mostrar informações mais completas sobre o hardware da maquina. Essa ferramenta é dividida em 3 sesões, Recursos de Hardware, Componentes e Ambiente de Software. Mas antes, vou falar aqui do Resumo do sistema.
+
+### Resumo do sistema
+
+Aqui mostra especificações tecnicas do computador como informações de processador, memoria ram e sistema operacional.
+
+![Janela de resumo do sistema](../WINDOWS/img/Tela-de-resumo-do-sistema.png)
+
+
+
+
