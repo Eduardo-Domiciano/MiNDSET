@@ -181,14 +181,14 @@ Para mais informações sobre o registro do windows acesse ![aqui](https://learn
 
 O windows update é um serviço microsoft fornecido para para atualizações de segurança, aprimoramentos de recursos e patchs para o sistema operacional e outros produtos como o windows defender. As atualizações geralmente são lançadas na segunda terça-feira de ada mês, esse dia é chamada de Patch Tuesday. As atualizações são comumente adiadas pelos usuarios por causa da nescessidade de reinicialização do computador. Hoje em dia é possivel adiar, mas eventualmente o windows irá reiniciar o computador e instalar as atualizações, garantindo que os usuarios que se acostumaram a adiar a atualização se esqueça de faze-la, se mantendo com o sistema desatualizado. Quando a atualização é forçada, isso acontece automaticamente. Para checar as atualizações esse é o caminho "configurações/Atualizações e Segurança/Windows Update".
 
-[windows update](./img/windows-update.png)
+![windows update](./img/windows-update.png)
 
 
 ## Segurança do Windows
 
 Segurança do windows gerencia e protege seus dispositivos e dados no seu computador. Ele também é visivel na janela de configurações um pouco mais abaixo do windows update.
 
-[segurança do windows](./img/segurança-windows.png)
+![segurança do windows](./img/segurança-windows.png)
 
 Nessa janela temos algumas opções:
 
@@ -206,7 +206,7 @@ A proteção contra virus é dividido em duas partes:
 - Ameaças Atuais
 - Configurações de proteção contra virus e ameaças
 
-[proteção contra virus e ameaças](./img/protecao-virus-ameacas.png)
+![proteção contra virus e ameaças](./img/protecao-virus-ameacas.png)
 
 ### Ameaças Atuais
 
