@@ -158,4 +158,24 @@ Apesar da interface grafica ser a forma mais comum de operar uma maquina windows
 
 Vou fazer uma anotação especifica para comandos mais usado como cd, mkdir, netstat, router entre outros. Tem muita coisa útil que da pra fazer uma anotação só pra isso. De qualquer forma tem uma lista dos comandos de prompt ![aqui](https://ss64.com/nt/)!
 
+## Registro do Windows (regedit)
+
+O regstro do windows é um banco de dados central usado para armazenar informações nescessárias para configurar o sistema para um ou mais usuarios, aplicativos ou dispositivos de hardware. Alguns topicos em o windows faz referencia são:
+
+- Perfis de cada ususario
+- Aplicativos instalados em cada computador e os documentos que podem ser criados por cada um.
+- configuração das propriedades para ada tipo de aplicativo.
+- Qual hardware existe no sistema.
+- As portas que estao sendo abertas.
+
+AVISO: Essas configurações são pra usuarios avançados. fazer alterações nos registros afetarão as operações do computador.
+
+Existem várias maneiras de editar os registros, uma delas é o editor de registro.
+
+![Editor de registro](../WINDOWS/img/windows-editor-de-registro.png)
+
+Para mais informações sobre o registro do windows acesse ![aqui](https://learn.microsoft.com/en-us/troubleshoot/windows-server/performance/windows-registry-advanced-users)!
+
+
+
 
