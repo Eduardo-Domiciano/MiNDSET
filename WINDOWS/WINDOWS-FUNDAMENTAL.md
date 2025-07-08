@@ -177,5 +177,65 @@ Existem várias maneiras de editar os registros, uma delas é o editor de regist
 Para mais informações sobre o registro do windows acesse ![aqui](https://learn.microsoft.com/en-us/troubleshoot/windows-server/performance/windows-registry-advanced-users)!
 
 
+## Windows Update
+
+O windows update é um serviço microsoft fornecido para para atualizações de segurança, aprimoramentos de recursos e patchs para o sistema operacional e outros produtos como o windows defender. As atualizações geralmente são lançadas na segunda terça-feira de ada mês, esse dia é chamada de Patch Tuesday. As atualizações são comumente adiadas pelos usuarios por causa da nescessidade de reinicialização do computador. Hoje em dia é possivel adiar, mas eventualmente o windows irá reiniciar o computador e instalar as atualizações, garantindo que os usuarios que se acostumaram a adiar a atualização se esqueça de faze-la, se mantendo com o sistema desatualizado. Quando a atualização é forçada, isso acontece automaticamente. Para checar as atualizações esse é o caminho "configurações/Atualizações e Segurança/Windows Update".
+
+[windows update](./img/windows-update.png)
+
+
+## Segurança do Windows
+
+Segurança do windows gerencia e protege seus dispositivos e dados no seu computador. Ele também é visivel na janela de configurações um pouco mais abaixo do windows update.
+
+[segurança do windows](./img/segurança-windows.png)
+
+Nessa janela temos algumas opções:
+
+- Proteção contra virus e ameaças.
+- Firewall e proteção de rede.
+- Controle de aplicativos e navegadores.
+- Segurança do dispositivo.
+
+Vamos olhar um pouco masi cada uma delas.
+
+## Proteção contra Virus a Ameaças
+
+A proteção contra virus é dividido em duas partes:
+
+- Ameaças Atuais
+- Configurações de proteção contra virus e ameaças
+
+[proteção contra virus e ameaças](./img/protecao-virus-ameacas.png)
+
+### Ameaças Atuais
+
+Aqui é onde fica as `Opeções de Verificação`, ou seja, você pode fazer um escaneamento no computador. São tres tipos de scan.
+
+- Verificação rapido: Escanea as pastas onde é mais comum encontrar ameaças.
+- Verificação completa: Verifica todas as pastas e programas ativos no disco. Esse escaneamento é bem demorado.
+- Verificação personalizada: você pode escolher pastas ou arquivos a serem escaneados.
+
+Depois desse você tem o `Historico de Ameaças`, onde você consegue ver os arquivos classificados como ameaça e ultimas verificações.
+
+- Ultima verificação: O windows defender verifica seu computador automaticamente, e você consegue ver quando isso aconteceu da ultima vez.
+- Ameaças em quarentena: As ameaças são isoladas e impedidas de serem executadas na sua maquina. Elas seram excluidas periodicamente.
+- Ameaças permitidas: Mostras os arquivos classificado como ameaças que foram manualmente permitidas pelo usuario. Mas isso só deve ser feito tendo certeza absoluta que o arquivo em questao é confiavel.
+
+### Configuração de Proteção COntra Virus e Ameaças
+
+Aqui é onde as configurações sao gerenciadas:
+
+- Proteção em tempo real: Localiza e impede que malwares sejam instalados e executaos na maquina.
+- Proteção fornecida pela nuvem: Fornece uma maior proteção com os dado fornecidos pela nuvem.
+- Envio automatico de exemplos: Envia modelos de arquivos para a microsoft para ajuda-los a proteger voce e a todos contra possiveis ameaças.
+- Acesso controlado a pastas: Protege arquivos, pastas e areas de memoria contra auterações feitas por aplicativos hostis.
+- Exclusões: O Windows defender nao verificará os arquivos que vc exluir das verifcações.
+- Notificações: O Windows Defender vai notifica-lo sobre a integridade e segurança do seun dispositivo.
+
+## Firewall
+
+
+
 
 
