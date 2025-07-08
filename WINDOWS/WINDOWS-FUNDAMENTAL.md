@@ -137,6 +137,25 @@ Aqui mostra especificações tecnicas do computador como informações de proces
 
 ![Janela de resumo do sistema](../WINDOWS/img/Tela-de-resumo-do-sistema.png)
 
+Há mais informações que devem ser obervadas detalhadamente em resumo do sistema no futuro.
 
+## Monitor de recursos
+
+O monitor de recursos exibe informações de processos relacionado a CPU, Disco, Rede e Memoria.
+
+
+## Prompt de Comando
+
+Apesar da interface grafica ser a forma mais comum de operar uma maquina windows, hoje em dia ainda há muitas vantagens em umar o prompt de comando. Seja pra executar comandos ou apenas buscar informações de forma rapida e facil em vez de acessar varias janelas e botões.
+
+- O comando Hostname imprimi o nome da maquina.
+
+![hostname](../WINDOWS/img/prompt-hostname.png)
+
+- O comando Whoami imprimirá o nome do usuario
+- O comando ipconfig imprimirá as configurações de rede
+![ipconfig](../WINDOWS/img/prompt-ipconfig.png)
+
+Vou fazer uma anotação especifica para comandos mais usado como cd, mkdir, netstat, router entre outros. Tem muita coisa útil que da pra fazer uma anotação só pra isso. De qualquer forma tem uma lista dos comandos de prompt ![aqui](https://ss64.com/nt/)!
 
 
