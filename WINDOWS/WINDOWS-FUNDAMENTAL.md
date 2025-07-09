@@ -222,7 +222,7 @@ Depois desse você tem o `Historico de Ameaças`, onde você consegue ver os arq
 - Ameaças em quarentena: As ameaças são isoladas e impedidas de serem executadas na sua maquina. Elas seram excluidas periodicamente.
 - Ameaças permitidas: Mostras os arquivos classificado como ameaças que foram manualmente permitidas pelo usuario. Mas isso só deve ser feito tendo certeza absoluta que o arquivo em questao é confiavel.
 
-### Configuração de Proteção COntra Virus e Ameaças
+### Configuração de Proteção Contra Virus e Ameaças
 
 Aqui é onde as configurações sao gerenciadas:
 
@@ -235,7 +235,58 @@ Aqui é onde as configurações sao gerenciadas:
 
 ## Firewall
 
+O trafico de comunicação se passa pra dentro e pra fora da maquina atraves das portas, o firewall valida essas informações como um cigurança em uma porta de festa, verificando cada um dos dados que passam por essas portas. O sistema oferece tres perfis de firewall, nertwork Domain, Public e private.
+
+![firewall & Network Protection](./img/firewall.png)
+
+Qual é a diferença entre dominio, publico e privado:
+
+- Dominio: O perfil de dominio se aplica aqueles em que o sistema host pode se autenticar em um controlador de dominio.
+- Publico: O perfil padrao o publico, usado para designar redes publicas, como pontos de redes wifi em lan hauses e cafeterias.
+- Privado: O perfil privado é um perfil particular, designado para resdes privadas e domesticas.
+
+Mesmo estando em um ambiente seguro, e mesmo tendo a opção de desativar o firewall do windows defender, nao faz sentido faze-lo, uma vez que mesmo em redes seguras, as validações deles nao influenciam no uso da rede, a menos a rede seja insegura.
 
 
+### Permissões de Aplicativos Atraves do Firewall
 
+![Permissoes de app - firewall](./img/Permissoes-app-firewall.png)
 
+Na imagem podemos ver os aplicativos que tem acesso aos perfis privados e publicos. Alguns dos aplicativos podem fornecer mais informações por meio do botão detalhes.
+
+### Configurações avançadas
+
+Existe alguns aspectos importantes sobre a configuração do firewall do windows, mas devo fazer uma anotação exclusiva pra ele. Ainda sim, é possivel visualizar mais informações a da pagina de configurações do windows [aqui](https://learn.microsoft.com/en-us/windows/security/operating-system-security/network-security/windows-firewall/configure)
+
+![configuração avançada de firewall](./img/configurações-avançadas-firewall.png)
+
+## Segurança do Dispositivo
+
+Isolamento do nucleo: Em Core Isolation, temos Integridade de memoria que impede que ataques insiram codigos maliciosos em processos de alta segurança.
+
+![Core Isolation](./img/core-isolation.png)
+
+### Processador de Segurança
+
+![Detalhes do processador de segurança](./img/Processador-segurança.png)
+
+TPM ou Trusted Plataform Module foi projetado para fornecer funções relacionados a segurança baseado em hardware. Um chip TPM é um processador criptografico seguro projetado para realizar operações criptograficas. O chip inclui varios mecanismos de segurança fisica para torna-lo resistente a adulterações, assim os softwares maliciosos sao incapazes de adulterar as suas configurações.
+
+## BitLocker
+
+O BitLocker é um recurso de proteção de dados que se integra ao sistema operacional e aborda as ameaças de roubo ou exposição de dados de computadores perdidos, roubados ou desativados inadequadadmente. Ele funciona com o TPM para ajudar a proteger os dados do usuario e garantir que um computador nao tenha sido adulterado enquanto o sistema estava offline.
+
+## Serviço de Copias de Sombra de Volumes
+
+O VSS (Volume shadow Copy Service) coordena as ações nescessárias para criar uma copia de sombra consistente (também conhecida com instantaneo ou pontual) dos dados que devem ser copiados.
+
+As copias de sombra de copia são armazenadas na pasta informações de volume do sistema em cada unidade de copia que tem proteção ativada.
+
+Se o VSS estiver ativado, será possivel executar algumas configurações avançadas:
+
+- Criar ponto de restauração.
+- Executar restauração do sitema.
+- Definir configurações de restauração.
+- Excluir pontos de restauração.
+
+Do ponto de vista de segurança, os criadores de malware conhecem esses recursos do windows e escrevem codigo em seu malware para procurar esse arquivos e exclui-los. Isso Impossibilita a recupaeração de um ataque de ransomware, a menos que você tenha um beckup ofline/externo.
