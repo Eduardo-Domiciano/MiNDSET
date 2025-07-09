@@ -260,3 +260,33 @@ Existe alguns aspectos importantes sobre a configuração do firewall do windows
 
 ![configuração avançada de firewall](./img/configurações-avançadas-firewall.png)
 
+## Segurança do Dispositivo
+
+Isolamento do nucleo: Em Core Isolation, temos Integridade de memoria que impede que ataques insiram codigos maliciosos em processos de alta segurança.
+
+![Core Isolation](./img/core-isolation.png)
+
+### Processador de Segurança
+
+![Detalhes do processador de segurança](./img/Processador-segurança.png)
+
+TPM ou Trusted Plataform Module foi projetado para fornecer funções relacionados a segurança baseado em hardware. Um chip TPM é um processador criptografico seguro projetado para realizar operações criptograficas. O chip inclui varios mecanismos de segurança fisica para torna-lo resistente a adulterações, assim os softwares maliciosos sao incapazes de adulterar as suas configurações.
+
+## BitLocker
+
+O BitLocker é um recurso de proteção de dados que se integra ao sistema operacional e aborda as ameaças de roubo ou exposição de dados de computadores perdidos, roubados ou desativados inadequadadmente. Ele funciona com o TPM para ajudar a proteger os dados do usuario e garantir que um computador nao tenha sido adulterado enquanto o sistema estava offline.
+
+## Serviço de Copias de Sombra de Volumes
+
+O VSS (Volume shadow Copy Service) coordena as ações nescessárias para criar uma copia de sombra consistente (também conhecida com instantaneo ou pontual) dos dados que devem ser copiados.
+
+As copias de sombra de copia são armazenadas na pasta informações de volume do sistema em cada unidade de copia que tem proteção ativada.
+
+Se o VSS estiver ativado, será possivel executar algumas configurações avançadas:
+
+- Criar ponto de restauração.
+- Executar restauração do sitema.
+- Definir configurações de restauração.
+- Excluir pontos de restauração.
+
+Do ponto de vista de segurança, os criadores de malware conhecem esses recursos do windows e escrevem codigo em seu malware para procurar esse arquivos e exclui-los. Isso Impossibilita a recupaeração de um ataque de ransomware, a menos que você tenha um beckup ofline/externo.
