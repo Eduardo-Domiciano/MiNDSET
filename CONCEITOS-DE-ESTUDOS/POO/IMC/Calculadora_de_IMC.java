@@ -48,6 +48,7 @@ public class Calculadora_de_IMC extends JFrame {
         add(labelAltura);
         add(campoAltura);
         add(botaoCalcular);
+        //
         add(new JLabel());
         add(labelTextoIMC);
         add(labelResultadoIMC);
