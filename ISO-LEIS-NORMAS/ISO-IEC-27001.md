@@ -1,25 +1,43 @@
-# Anotações sobre ISO/IEC 27001: Sistemas de Gestão da Segurança da Informação
+# Norma ISO/IEC 27001
 
-A ISO/IEC 27001 é a principal norma para gestão de segurança da informação. Ela especifica os requisitos para estabelecer, implementar manter e m,elhorar continuamente um Sistema de Gestão da Segurança da Informação (SGSI).
+A ISO/IEC 27001 é uma norma de segurança da informação reconhecida internacionalmente, desenvolvida pelo orgão de certificação [International Organization for Standardization](https://www.iso.org/home.html) (ISO) e a [International Eletrotechnical Commission](https://www.iec.ch/homepage) (IEC). A norma ISO/IEC 27001 foi publicada pela primeira vez em 2005, sendo o resultado da evolução de uma norma britânica anterior, a BS 7799-2, publicada originalmente em 1999. A ISO juntamente com a IEC trabalharam juntas para desenvolver a ISO/IEC 27001 como um padrão internacional para sistemas de gestão de segurança da informação (SGSI).
 
-### Objetivo:
+## O que é a ISO/IEC 27001?
 
-Um SGSI é uma abordagem é uma abordagem sistematica para gerenciar informações confidenciais da empresa para que permaneçam seguras. Ela abrange pessoas, processos e tecnologia da informação, aplicando um processo de gestão de riscos. 
+A norma internacional ISO/IEC 27001 estabelece os requisitos para criação, implementação, manutenção e melhorias continua de um **Sistema de Gestão de Segurança da Informação (SGSI)**, em ingles **Information Security Management System (ISMS)**. Ela é como um manual de melhores práticas que orienta uma organização a proteger suas informações de forma sistemática e estruturada. Ela não especifica quais tipos de ferramentas devem ser usadas, mas sim, como uma empresa deve gerenciar a segurança de forma completa.
 
-## A norma define que a gestão:
-- Examine sistematicamente os riscos de segurança da informação da organização, levando em conta as ameaças, volnerabilidades e impactos.
-- Projete e implemente um conjunto coerente e abrangente de controle de segurança da informação e/ou outras formas de tratamento de risco (como evitar ou transferir riscos) para lidar com os riscos que sao considerados inaceitaveis.
-- Adotar um processo de gestao abrangente para garantir que os controles de segurança da infoemação continuem a atender as nescessidades da organização.
+![3 pilares](./img/ISO-IEC-27001-3-pilares.png)
 
-Essa é apenas um pequeno resumo pra entender o que estudar. A uma certificação voltada a ISO 27001 e alguns topicos a serem estudados. Ainda preciso encontrar fontes de estudo, mas tenho alguns link
+O principal objetivo da norma é proteger os 3 pilares essenciais da informação:
 
-- https://www.27001.pt/
+- 1. **Confidencialidade**: Garantir que a informação seja acesivel apenas por pessoas autorizadas.
+- 2. **Integridade**: Assegurar que as informações e seus metodos de processamento sejam precisos e completos, protegendo contra alterações não autorizadas.
+- 3. **Disponibilidade**: Garantir que os usuarios autorizados tenham acesso a informação e aos ativos relacionados sempre que nescessário.
 
-- https://qmsbrasil.com.br/wp-content/uploads/2021/06/iso-27001-iso-27701-compactado.pdf
+## Como funciona a ISO/IEC 27001?
 
-- https://intranetcomunix.com/wp-content/uploads/2024/07/ABNT_ISO_27001.pdf
+![PDCA image](./img/ISO-IEC-27001-PDCA.png)
 
-- https://www.kufunda.net/publicdocs/Gest%C3%A3o%20da%20seguran%C3%A7a%20da%20informa%C3%A7%C3%A3o%20NBR%2027001%20e%20NBR%2027002%20(Flavia%20Est%C3%A9lia%20Silva%20Coelho%20etc.).pdf
+A implementação da norma 27001 não é um projeto com inicio, meio e fim, mas sim um ciclo continuo de gestão. Ela funciona com base no modelo **PDCA (Plan-Do-Check-Act)**, um ciclo de melhoria continua:
 
-- https://www.researchgate.net/publication/385776460_Conformidade_com_a_norma_ABNT_ISOIEC_27001-2006_um_estudo_de_caso_sobre_a_implementacao_de_Sistema_de_Gestao_da_Seguranca_da_Informacao
+- 1. **Plan - Planejamento**: Essa é a fase em que é definido o escopo do SGSI, onde se estabelece a pilitica de segurança da informação, define a metodologia de avaliação de riscos e, o mais importante, identifica e avalia os riscos de segurança. Com base nessa avaliação, a empresa define os controles (medidas de segurança) nescessários para mitigar esses riscos. A norma possui uma lista de controle de referencia em seu Anexo A, que abordam áreas como controle de acesso, criptografia, segurança fisica, etc.
 
+![Anexo A](./img/ISO-IEC-27001-ANEXO-A.png)
+Creditos: https://www.27001.pt/
+
+- 2. **Do - Fazer**: Essa é a fase onde se implementa o que foi planejado:
+    - Implementação de controles de segurança definidos.
+    - Realiza treinamentos de concientização para os funcionários.
+    - Gerencia a operação diária de segurança da informação.
+    - Cria Cria e mantem a documentação nescessária (politicas, procedimentos, registros).
+
+- 3. **Check - Checar**: Nesse ponto, a organização monitora e revisa a eficácia do SGSI para garantir que ele está funcionando como esperado. Isso inclui:
+    - Auditorias Internas: Verificações periódicas para garantir que os processos estão em conformidade com a norma.
+    - Analise Critica pela Direção: A gestão da empresa revisa o desempenho do SGSI, analisando resultados das auditorias, incidentes ocorridos e decidir sobre as proximas ações.
+    - Monitoramento de métrica: Acompanhar indicadores de desempenho para medir a eficácia dos controles.
+
+- 4. **Act - Agir**: Com base nos resultados da fase de verificação, a organização toma ações corretivas e preventivaspara resolver problemas e melhorar o SGSI. Se a auditoria encpontrou uma falha, ela é corrigida nessa fase, ou se um risco surgiu, ele é tratado. Este passo garante que o sistema de gestao nao fique estagnado e evolua constantemente para lidar com novas ameaças.
+
+![Anexo A](./img/ISO-IEC-27001-ANEXO-A-2.png)
+
+Após passar por este ciclo e amadurecer seus processos, a empresa pode contratar um organismo certificador independente e credenciado para realizar uma auditoria externa. Se a empresa demonstrar que seu SGSI está em conformidade com todos os requisitos da norma, ela recebe a certificação ISO/IEC 27001, que geralmente é validada por três anos, mantendo auditorias e manutenções anuais.
