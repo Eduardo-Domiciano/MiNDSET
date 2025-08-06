@@ -30,4 +30,4 @@ Esse comando é responsavel por compilar e carregar os modulos Kernels do virtua
 
 ### FInalizando
 
-Depois de rodar esse codigo, reinstale a maquina virtual novamente e o virtualbox deverá ser capaz de carrega-la.
+Depois de rodar esse codigo, reinstale a maquina virtual novamente e a virtualbox deverá ser capaz de carrega-la.
