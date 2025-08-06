@@ -41,3 +41,6 @@ Creditos: https://www.27001.pt/
 ![Anexo A](./img/ISO-IEC-27001-ANEXO-A-2.png)
 
 Após passar por este ciclo e amadurecer seus processos, a empresa pode contratar um organismo certificador independente e credenciado para realizar uma auditoria externa. Se a empresa demonstrar que seu SGSI está em conformidade com todos os requisitos da norma, ela recebe a certificação ISO/IEC 27001, que geralmente é validada por três anos, mantendo auditorias e manutenções anuais.
+
+
+Estudar depois https://www.serasaexperian.com.br/blog-pme/iso-27001/
