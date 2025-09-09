@@ -290,3 +290,12 @@ Se o VSS estiver ativado, será possivel executar algumas configurações avanç
 - Excluir pontos de restauração.
 
 Do ponto de vista de segurança, os criadores de malware conhecem esses recursos do windows e escrevem codigo em seu malware para procurar esse arquivos e exclui-los. Isso Impossibilita a recupaeração de um ataque de ransomware, a menos que você tenha um beckup ofline/externo.
+
+
+# Diretórios Ativos
+
+O Active Diretory da Microsoft é a espinha dorsal do mundo corporativo. Ele simplifica o gerenciamento de dispositivos e usuarios em um ambiente corporativo. 
+
+## Dominio do Windows
+
+Se você administra a rede de uma empresa pequena, com 5 ou 6 computadores, é facil fazer uma instalação ou manutenção nessas maquina sozinho, mas essa empresa cresce e passa a ter 150 maquinas, as coisas saem do controle. Para resolver essa questão, vamos estudar sobre Windows Domain.
