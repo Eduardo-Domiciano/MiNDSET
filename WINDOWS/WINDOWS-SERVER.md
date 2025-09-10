@@ -4,10 +4,22 @@ Anda vou pesquisar mais sobre as versoes de Windows para falar mais aqui, mas po
 
 ## Primeiros passos para o Windows Server 2019 depois de Instalado.
 
-O windows vem por padrão é bem restrito para receber conexões externas, até mesmo o Ping(Protocolo ICMP). Então vamos começar setando uma regra no firewall pra permitir pingar no server e testar a conexão. **Importante: Eu estou fazendo teste em uma maquina virtual com a placa de rede em modo Bridge, então nao estou usando um servidor DHCP aqui**
+### User Administrator
+
+Usando o Virtualbox, o usuario padrão é vboxuser. Mas é importante começar ativando o Administrador do sistema. Como ainda não há esse usuarioAdministrador ativo, quando ativado, o sistema vai pedir ra adicionar uma senha. O comando é`net user Administrator *`, depois de apertar **Enter** vai aparecer pra inserir uma senha e confirma-la logo em seguida.
+
+![Usuario Administrator](./img/windows-server-administrator-user.png)
+
+Uma vez que o administrador for criado, você ainda precisará logar como como administrador. Não da pra trocar de usuario igual feito no linux com `su`, você terá que usar o comando `logoff` **(que por motivos obvios nao funciona em uma conexão remota)** e então apertar `ctrl+alt+del` pra abrir no terminal o login de usuario. **IMportante: na virtualbox por motivos obvios nao vai funcionar fazer isso no teclado do seu computador. Pra isso, ultilize o teclado da virtualbox, na barra de ferramentas --> entrada --> teclado --> teclado de tela** . O sistema ainda vai estar setado pra logar com o susuario padrao que é o 
+`vboxuser`. Para selecionar o usuario, aperte `esc` no teclado. Então só selecionar o usuario Administrador e colocar a senha.
+
+![Logoff windows server](./img/Windows-server-%20logoff.png)
+
+Ainda há como executar comandos com privilégio de administrador, mas vou deixar isso pra uma outra anotação.
 
 ### Ping
 
+O windows vem por padrão é bem restrito para receber conexões externas, até mesmo o Ping(Protocolo ICMP). Então vamos começar setando uma regra no firewall pra permitir pingar no server e testar a conexão. **Importante: Eu estou fazendo teste em uma maquina virtual com a placa de rede em modo Bridge, então nao estou usando um servidor DHCP aqui**
 A primeira coisa então é descobrir qual o ip do server. Vamos usar o comando `ipconfig`.
 
 ![ipconfig](./img/server-2019-ipconfig.png)
@@ -48,7 +60,7 @@ Por padrão o firewall do windows bloqueará qualquer tentativa de conexão com 
 
 ![ativação da regra no firewall](./img/SSH-ativacao-regra-firewall.png)
 
-Uma vez que esses passos tenham sido concluidos, a maquina será capaz de fazer e receber conexões remotas a partir de uma conexão Secure Shell.
+Uma vez que esses passos tenham sido concluidos, a maquina será capaz de fazer e receber conexões remotas a partir de uma conexão Secure Shell. Para se conectar com o ssh, ultilize o comando `ssh nome-do-usuario@numero-IP` depois disso, ele irá pedir a senha de autorização.
 
 
 
