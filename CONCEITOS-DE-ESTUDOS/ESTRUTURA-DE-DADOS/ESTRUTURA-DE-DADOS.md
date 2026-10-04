@@ -1,17 +1,20 @@
-# Estrutura de dados.
+# Estrutura de dados
 
-Estrutura de dados é uma maneira de organizar, gerenciar e armazenar dados de maneira eficiente para que possam ser usados de forma adequada e eficaz. Elas são fundamentais na ciencia da ccomputação pois determinam a forma como dados são armazenados, manipulados e acessados. Diferentes estruturas de dados são usados para resolver diversos tipos de problemas. Alguens exemplos incluem: arrays, listas ligadas, pilhas, filas, arvores e grafos.
+Estrutura de dados é uma maneira de organizar, gerenciar e armazenar dados para que possam ser usados de forma adequada. Elas são fundamentais na ciência da computação, pois determinam como os dados são armazenados, manipulados e acessados. Estruturas diferentes resolvem tipos diferentes de problemas. Alguns exemplos: arrays, listas ligadas, pilhas, filas, árvores e grafos.
 
-## Listas:
+## Listas
 
-Listas nos permite armazenar e manipular coleções de elementos de forma dinamica, ou seja, tamanho da lista pode aumentar ou diminuir conforme nescessário. Os elementos em uma lista podem ser inseridos em qualquer posição. Quando os elementos estao ordenados a lista é chamada lista ordenada.
+Listas permitem armazenar e manipular coleções de elementos de forma dinâmica: o tamanho pode aumentar ou diminuir conforme necessário. Os elementos podem ser inseridos em qualquer posição. Quando seguem um critério de ordem (por exemplo, crescente), a lista é chamada de lista ordenada.
 
 ### Lista linear com vetores
 
-Uma lista linear pe uma coleção ordenada de elementos, onde cada elemento ocupa uma posição especifica. Quando implementamos uma lista linear usanbdo um vetor (ou array), os elementos são armazenados em posições continuas na memoria.
+Uma lista linear é uma coleção de elementos em sequência, em que cada um ocupa uma posição específica. Implementada com um vetor (array), os elementos ficam em posições contíguas na memória. O acesso por índice é direto. Inserir ou remover no meio exige deslocar os elementos seguintes.
 
-### Aqui um exemplo de como implementar uma lista linear ultilizando um vetor em C++
-````
+A capacidade máxima é definida na criação. O número de elementos ocupados (o tamanho) cresce até esse limite.
+
+### Exemplo de lista linear com vetor em C++
+
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -22,19 +25,19 @@ private:
     int tamanho;
 
 public:
-    // Construtor: Inicializa a lista com uma capacidade especificada e define o tamanho como "0"
+    // Construtor: inicializa a lista com uma capacidade e tamanho zero.
     ListaLinear(int cap) {
         capacidade = cap;
         tamanho = 0;
         vetor = new int[capacidade];
     }
 
-    // Destrutor: Libera a memoria alocada para o vetor quando o objeto é destruido.
+    // Destrutor: libera a memória alocada para o vetor.
     ~ListaLinear() {
         delete[] vetor;
     }
 
-    // Inserir elemento: Adiciona um elemento ao final da lista desde que a capacidade maxima não tenha sido atingida.
+    // Insere no final, se ainda houver capacidade.
     void inserir(int elemento) {
         if (tamanho < capacidade) {
             vetor[tamanho] = elemento;
@@ -44,7 +47,7 @@ public:
         }
     }
 
-    // Remover elemento: Remove um elemento de uma posição especifica e ajusta os elementos subsequentes.
+    // Remove o elemento de um índice e desloca os seguintes para a esquerda.
     void remover(int indice) {
         if (indice >= 0 && indice < tamanho) {
             for (int i = indice; i < tamanho - 1; i++) {
@@ -56,17 +59,17 @@ public:
         }
     }
 
-    // Acessar elemento: Retorna o valor do elemento em uma posição especifica, verificando se o indice é valido.
+    // Retorna o valor de um índice, se ele for válido.
     int acessar(int indice) {
         if (indice >= 0 && indice < tamanho) {
             return vetor[indice];
         } else {
             cout << "Índice inválido!" << endl;
-            return -1; // Valor de erro
+            return -1; // valor de erro
         }
     }
 
-    // Exibir os elementos da lista.
+    // Exibe os elementos da lista.
     void exibir() {
         for (int i = 0; i < tamanho; i++) {
             cout << vetor[i] << " ";
@@ -74,7 +77,7 @@ public:
         cout << endl;
     }
 
-    // Obter tamanho: retorna o numero atual de elementos na lista.
+    // Retorna quantos elementos a lista tem agora.
     int obterTamanho() {
         return tamanho;
     }
@@ -92,46 +95,44 @@ int main() {
     cout << "Lista após inserções: ";
     lista.exibir();
 
-    lista.remover(2); // Remover elemento no índice 2 (30)
+    lista.remover(2); // remove o elemento no índice 2 (30)
     cout << "Lista após remoção: ";
     lista.exibir();
 
-    int elemento = lista.acessar(1); // Acessar elemento no índice 1 (20)
+    int elemento = lista.acessar(1); // acessa o elemento no índice 1 (20)
     cout << "Elemento no índice 1: " << elemento << endl;
 
     return 0;
 }
+```
 
-````
-### Vantagens:
+### Vantagens
 
-- Facilidade de implementação
-- Apesar de simples, pode ser ultilizado para problemas mais complexos, dependendo do tamnho da lista.
+- Implementação simples.
+- Acesso direto a qualquer posição pelo índice.
 
-### Desvantagens:
+### Desvantagens
 
-- Alto custo de remoção e inserção;
-- Nescessidade de conhecer o tamanho da lista no momento da inicializaçao.
+- Inserir ou remover no meio custa caro, porque os elementos seguintes precisam ser deslocados.
+- A capacidade máxima precisa ser conhecida na inicialização. Se encher, é preciso realocar o vetor.
 
-### Lista de alocação dinamica
+### Lista de alocação dinâmica
 
-Uma lista de alocação dinamica, frequentemente referida como lista ligada, é uma estrutura de dados que consiste em nós, onde cada nó contém dados e uma referencia (ou ponteiro) para o proximo nó na sequencia. Ao contrário de um vetor, que requer um tamanho fixo, uma lista ligada permite alocação e desalocação dinamica de memoria, o que torna  essa estrutura flexivel em termos de tamanho.
+Uma lista de alocação dinâmica, em geral uma lista ligada, é formada por nós. Cada nó guarda um dado e uma referência (ponteiro) para outro nó. A memória de cada nó é alocada e liberada conforme a lista cresce ou encolhe, então o tamanho não precisa ser fixado na criação.
 
-### Tipos de listas ligadas:
+### Tipos de listas ligadas
 
-- Listas simplesmente liugada: Cada nó contem um valor e uma referencia para o proximo nó. A cabeça ou o inicio da lista é um ponteiro para o proximo nó. A ultima referencia do nó é null, indicando o fim da lista.
+- **Lista simplesmente ligada:** cada nó contém um valor e uma referência para o próximo. A cabeça é um ponteiro para o primeiro nó. O último nó aponta para nulo, o que marca o fim da lista.
+- **Lista duplamente ligada:** cada nó contém um valor, uma referência para o próximo e outra para o anterior. Dá para percorrer a lista nos dois sentidos. O anterior do primeiro nó e o próximo do último são nulos.
+- **Lista circular:** o próximo do último nó aponta de volta para o primeiro, formando um círculo.
 
-- Lista duplamente ligada: Cada nó contém um valor, uma referencia para o proximo nó e uma referencia para o nó anterior. Permite navegação bidirecional. A ultima referencia de nó é null.
+### Exemplo de lista simplesmente ligada em C++
 
-- Lista circular: Semelhante a listas ligadas, mas a referencia do ultimo nó aponta de volta para o primeiro nó, formando um circulo.
-
-### Exemplo de implementação de lista simplesmente ligada em C++
-
-````
+```cpp
 #include <iostream>
 using namespace std;
 
-// Definição do nó: Estrutura basica que contem o valor e o ponteiro para o proximo nó.
+// Nó: guarda o valor e o ponteiro para o próximo.
 struct Nodo {
     int valor;
     Nodo* proximo;
@@ -142,12 +143,12 @@ private:
     Nodo* cabeca;
 
 public:
-    // Construtor: Inicializa a lista com a cabeça como nullptr.
+    // Construtor: lista vazia.
     ListaLigada() {
         cabeca = nullptr;
     }
 
-    // Destrutor: Libera a memoria alocada para os nós da lista.
+    // Destrutor: libera todos os nós.
     ~ListaLigada() {
         Nodo* atual = cabeca;
         Nodo* proximo;
@@ -158,7 +159,7 @@ public:
         }
     }
 
-    // Inserir no início: Cria um novo nó e o adiciona no fim da lista.
+    // Insere no início: o novo nó passa a ser a cabeça.
     void inserirInicio(int valor) {
         Nodo* novoNodo = new Nodo();
         novoNodo->valor = valor;
@@ -166,7 +167,7 @@ public:
         cabeca = novoNodo;
     }
 
-    // Remover do início: Remove o nó do inicio da lista e ajusta a cabeça.
+    // Remove o primeiro nó e atualiza a cabeça.
     void removerInicio() {
         if (cabeca != nullptr) {
             Nodo* temp = cabeca;
@@ -175,7 +176,7 @@ public:
         }
     }
 
-    // Exibir lista: Percorre e exibe todos os valores da lista.
+    // Percorre a lista a partir da cabeça e exibe os valores.
     void exibir() {
         Nodo* atual = cabeca;
         while (atual != nullptr) {
@@ -202,45 +203,45 @@ int main() {
 
     return 0;
 }
+```
 
-````
+### Vantagens
 
-### Vantagens: 
-- Baixo custo para inserir e remover elementos. 
-- Não existe a nescessidade de alocar previamente o tamanho da lista.
+- Inserir e remover no início (ou numa posição cujo ponteiro já se conhece) é barato: basta ajustar referências.
+- O tamanho cresce nó a nó, sem reservar a capacidade inteira de antemão.
 
-### Desvantagens:
+### Desvantagens
 
-- Não possivel acessar diretamente um elemento, a lista precisa ser percirrida sempre a partir do primeiro.
+- Não há acesso direto por índice. Para chegar a um elemento, a lista é percorrida desde o primeiro nó.
 
-## Pilhas:
+## Pilhas
 
-Pilhas (ou stacks, em ingles), é uma estrutura de dados fundamental que segue o principio LIFO (Last In, First Out), ou seja, o ultimo elemento a entrar é o ultimo a sair.
+Pilha (stack, em inglês) é uma estrutura que segue o princípio LIFO (Last In, First Out): o último elemento a entrar é o primeiro a sair.
 
-### Conceito:
+### Conceito
 
-Uma pilha é uma coleção de elementos que permite inserções (push) e remoções (pop) apenas no topo da estrutura. Imagine uma pilha de pratos: você coloca um novo prato no topo da pilha e também remove o prato topo quando precisa de um.
+Uma pilha permite inserção (push) e remoção (pop) apenas no topo. A imagem é uma pilha de pratos: o prato novo entra no topo, e o prato que se retira também é o do topo.
 
-### Implementação da pilha:
-````
+### Implementação com `std::vector`
+
+```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
 
 class Pilha {
 private:
-    vector<int> vetor; // Vetor para armazenar os elementos
+    vector<int> vetor;
 
 public:
-    // Construtor: Inicializa a pilha.
     Pilha() {}
 
-    // Push: Adicionar elemento ao topo
+    // Adiciona um elemento ao topo.
     void push(int elemento) {
         vetor.push_back(elemento);
     }
 
-    // Pop: Remover e retornar elemento do topo, verificando se a pilha ta vazia.
+    // Remove e devolve o elemento do topo.
     int pop() {
         if (!vetor.empty()) {
             int topo = vetor.back();
@@ -248,26 +249,24 @@ public:
             return topo;
         } else {
             cout << "Pilha vazia!" << endl;
-            return -1; // Valor de erro
+            return -1; // valor de erro
         }
     }
 
-    // Peek/Top: Retornar elemento do topo sem remove-lo, verificando se a pilha ta vazia.
+    // Devolve o topo sem removê-lo.
     int top() {
         if (!vetor.empty()) {
             return vetor.back();
         } else {
             cout << "Pilha vazia!" << endl;
-            return -1; // Valor de erro
+            return -1; // valor de erro
         }
     }
 
-    // IsEmpty: Verificar se a pilha está vazia
     bool isEmpty() {
         return vetor.empty();
     }
 
-    // Size: Retornar o número de elementos na pilha
     int size() {
         return vetor.size();
     }
@@ -289,29 +288,30 @@ int main() {
 
     return 0;
 }
+```
 
-````
+### Vantagens
 
-### Vantagens:
+- Simples de implementar.
+- Útil para avaliar expressões aritméticas e para o controle de chamadas de função (a pilha de execução).
 
-- Simples e facil de implementar.
-- Útil em varias situações, como na avaliação de expressões aritiméticas e na implementação de chamadas recursivas.
+### Desvantagens
 
-### Desvantagens:
+- Só o topo é acessível. Os demais elementos ficam escondidos até serem desempilhados.
 
-- Não permite acesso aleatório a elementos (apenas o elemento do topo é acessivel diretamente).
+O `std::vector` cresce sozinho quando o bloco contíguo enche: a biblioteca realoca um vetor maior e copia os elementos.
 
-### Pilha com ponteiro:
+### Pilha com ponteiros
 
-Ao contrario de uma pilha baseada em vetor, onde o tamanho da pilha é fixo ou precisa ser ajustado manualmente, uma pilha baseado em ponteiros pode se ajustar automaticamente a quantidade de elementos armazenados.
+Nesta versão, cada elemento é um nó alocado separadamente. A pilha cresce e encolhe um nó por vez, sem realocar um bloco inteiro.
 
-### implementando a pilha usando ponteiros
+### Implementação com ponteiros
 
-````
+```cpp
 #include <iostream>
 using namespace std;
 
-// cada nó contem um valor e um pontiero para a proxima pilha.
+// Cada nó guarda um valor e o ponteiro para o nó abaixo.
 struct Nodo {
     int valor;
     Nodo* proximo;
@@ -319,22 +319,22 @@ struct Nodo {
 
 class Pilha {
 private:
-    Nodo* topo; // Ponteiro para o topo da pilha
+    Nodo* topo;
 
 public:
-    // Construtor: Inicializa a pilha como topo e aponta para nullptr
+    // Pilha vazia: o topo não aponta para ninguém.
     Pilha() {
         topo = nullptr;
     }
 
-    // Destrutor: Limpa todos os nós da pilha quando o objeto é destruido.
+    // Libera todos os nós.
     ~Pilha() {
         while (!isEmpty()) {
             pop();
         }
     }
 
-    // Push: Cria um novo nó, define seu valor e ajusta o ponteiro "topo" para apontar a este novo nó.
+    // Cria um nó e o coloca como novo topo.
     void push(int elemento) {
         Nodo* novoNodo = new Nodo();
         novoNodo->valor = elemento;
@@ -342,7 +342,7 @@ public:
         topo = novoNodo;
     }
 
-    // Pop: remove o nó do topo, ajusta o ponteiro "topo" para o proximo nó e retorna o valor do nó removido.
+    // Remove o topo, avança o ponteiro e devolve o valor removido.
     int pop() {
         if (!isEmpty()) {
             Nodo* temp = topo;
@@ -352,21 +352,20 @@ public:
             return valor;
         } else {
             cout << "Pilha vazia!" << endl;
-            return -1; // Valor de erro
+            return -1; // valor de erro
         }
     }
 
-    // Top: Retorna o valor do nó do topo sem remove-lo.
+    // Devolve o valor do topo sem removê-lo.
     int top() {
         if (!isEmpty()) {
             return topo->valor;
         } else {
             cout << "Pilha vazia!" << endl;
-            return -1; // Valor de erro
+            return -1; // valor de erro
         }
     }
 
-    // IsEmpty: Verificar se a pilha está vazia
     bool isEmpty() {
         return topo == nullptr;
     }
@@ -386,31 +385,33 @@ int main() {
 
     return 0;
 }
+```
 
-````
+### Vantagens
 
-### Vantagens:
+- O tamanho acompanha a quantidade de elementos, nó a nó.
+- Inserção e remoção no topo são rápidas.
 
-- Tamanho Dinamico: A pilha pode crescer e enconlher conforme necessario.
-- Inserções e remoções rápidas no topo.
+### Desvantagens
 
-### Desvantagens:
+- Cada nó gasta memória extra com o ponteiro.
+- Os nós ficam espalhados na memória, o que prejudica o aproveitamento da cache em relação a um vetor contíguo.
 
-- Overhead adicional de memoria devido aos ponteiros.
-- Acesso mais lento a elemento que não estão no topo, pois precisa percorre a lista.
-
+Nos exemplos de pilha e de fila, devolver `-1` quando a estrutura está vazia serve só como sinal de erro. Se `-1` for um valor válido da estrutura, esse sinal se confunde com um elemento de verdade.
 
 ## Filas
 
-### Fila
-Uma fila (ou queue, em ingles) é uma estrutura de dados que segue o principio FIFO ( first In, First Out), ou seja, o primeiro elemento a entrar é o primeiro a sair. Pense em uma fila de pessoas esperando para serem atendidas: A primeira pessoa a entrar na fila é a primeira a ser atendida.
+Uma fila (queue, em inglês) segue o princípio FIFO (First In, First Out): o primeiro elemento a entrar é o primeiro a sair. A imagem é uma fila de pessoas: quem chegou antes é atendido antes.
 
+Enfileirar (`enqueue`) coloca o elemento no final. Desenfileirar (`dequeue`) retira o elemento da frente.
 
-### IMplementando fila em C++
+### Implementação com vetor
 
-````
+O exemplo trata o vetor como um anel: os índices de frente e traseira dão a volta com o operador módulo. É uma fila circular de capacidade fixa.
+
+```cpp
 #include <iostream>
-#define TAMANHO_MAXIMO 100 // Tamanho máximo da fila
+#define TAMANHO_MAXIMO 100
 
 using namespace std;
 
@@ -422,14 +423,14 @@ private:
     int tamanho;
 
 public:
-    // Construtor: Inicializa a fila com frente e traseira como -1, indicando que a fila esta vazia.
+    // Frente e traseira em -1 indicam fila vazia.
     Fila() {
         frente = -1;
         traseira = -1;
         tamanho = 0;
     }
 
-    // Enqueue: Adicionar elemento ao final da fila, ajustando os indivces de traseira e verificando a condição de fial cheia.
+    // Insere no final. Se o próximo índice da traseira coincidir com a frente, a fila está cheia.
     void enqueue(int elemento) {
         if ((traseira + 1) % TAMANHO_MAXIMO == frente) {
             cout << "Fila cheia!" << endl;
@@ -441,11 +442,11 @@ public:
         }
     }
 
-    // Dequeue: Remover e retornar elemento do início da fila, ajustando os indices de frente e traseira e verificando a condição de fila vazia.
+    // Remove e devolve o elemento da frente.
     int dequeue() {
         if (frente == -1) {
             cout << "Fila vazia!" << endl;
-            return -1; // Valor de erro
+            return -1; // valor de erro
         } else {
             int elemento = vetor[frente];
             if (frente == traseira) {
@@ -459,22 +460,20 @@ public:
         }
     }
 
-    // Front: Retornar elemento do início sem remove, verificando a condição de fila vaziaa
+    // Devolve a frente sem removê-la.
     int front() {
         if (frente != -1) {
             return vetor[frente];
         } else {
             cout << "Fila vazia!" << endl;
-            return -1; // Valor de erro
+            return -1; // valor de erro
         }
     }
 
-    // IsEmpty: Verificar se a fila está vazia
     bool isEmpty() {
         return (frente == -1);
     }
 
-    // Size: Retornar o número de elementos na fila
     int size() {
         return tamanho;
     }
@@ -494,16 +493,21 @@ int main() {
 
     return 0;
 }
+```
 
-````
-### Filas Circulares:
+### Filas circulares
 
-Uma fila circular é uma variação da fila linear onde o ultimo elemento aponta de volta para o primeiro elemento, formando um circulo. Isso permite uma ultilização mais eficiente do espaço, especialmente quando a fila é implementada com um vetor.
+Numa fila linear com vetor, cada remoção “abandona” a posição da frente. Mesmo com espaço livre no início do vetor, a traseira pode bater no fim e a fila parecer cheia.
 
-### Implementando fila circular em C++:
-````
+A fila circular devolve a traseira ao início quando ela chega ao fim do vetor. O último posto liga de volta ao primeiro, e o espaço liberado pelas remoções volta a ser usado. A condição de fila cheia, neste exemplo, é a traseira estar imediatamente antes da frente no anel: `(traseira + 1) % capacidade == frente`.
+
+O código abaixo é o mesmo mecanismo, com capacidade 5, para o efeito da volta aparecer com poucos elementos.
+
+### Implementação de fila circular em C++
+
+```cpp
 #include <iostream>
-#define TAMANHO_MAXIMO 5 // Tamanho máximo da fila
+#define TAMANHO_MAXIMO 5
 
 using namespace std;
 
@@ -515,14 +519,12 @@ private:
     int tamanho;
 
 public:
-    // Construtor
     FilaCircular() {
         frente = -1;
         traseira = -1;
         tamanho = 0;
     }
 
-    // Enqueue: Adicionar elemento ao final da fila
     void enqueue(int elemento) {
         if ((traseira + 1) % TAMANHO_MAXIMO == frente) {
             cout << "Fila cheia!" << endl;
@@ -534,11 +536,10 @@ public:
         }
     }
 
-    // Dequeue: Remover e retornar elemento do início da fila
     int dequeue() {
         if (frente == -1) {
             cout << "Fila vazia!" << endl;
-            return -1; // Valor de erro
+            return -1; // valor de erro
         } else {
             int elemento = vetor[frente];
             if (frente == traseira) {
@@ -552,22 +553,19 @@ public:
         }
     }
 
-    // Front: Retornar elemento do início sem remover
     int front() {
         if (frente != -1) {
             return vetor[frente];
         } else {
             cout << "Fila vazia!" << endl;
-            return -1; // Valor de erro
+            return -1; // valor de erro
         }
     }
 
-    // IsEmpty: Verificar se a fila está vazia
     bool isEmpty() {
         return (frente == -1);
     }
 
-    // Size: Retornar o número de elementos na fila
     int size() {
         return tamanho;
     }
@@ -587,133 +585,129 @@ int main() {
 
     return 0;
 }
+```
 
-````
-## Arvore Binária
+## Árvore binária
 
-### O que é uma arvore Binária
-Árvores binarias sao uma estrutura de dados fundamental em ciencias da computação. Elas são compostas por nós, onde cada nó pode ter no maximo 2 filhos. geralmente chamados de "esquerdo" e "direito".
+Árvore binária é uma estrutura em que cada nó tem no máximo dois filhos, em geral chamados de esquerdo e direito.
 
-### Estrutura de uma Arvore Binária
+### Estrutura
 
-- Raiz:O nó superior da arvore.
-- Folhas: Nós que nao tem filhos.
-- Nós internos: Nós que tem pelo menos um filho.
-- Altura da arvore: O numero maximo de arestas do nó raiz ate uma folha.
-- Nivel de um nó: A distancia do nó até a raiz.
+- **Raiz:** o nó do topo, sem pai.
+- **Folhas:** nós sem filhos.
+- **Nós internos:** nós com pelo menos um filho.
+- **Altura:** o número máximo de arestas da raiz até uma folha.
+- **Nível de um nó:** a distância desse nó até a raiz (a raiz está no nível 0).
 
-### Tipo de Arvores
+### Tipos
 
-- Arvores Binárias Completa: Todas os niveis, exceto possivelmente o ultimo, são completamente preenchidos, e todos os nós estão o mais à esquerda possivel.
-- Árvore Binaria Cheia: Todos os nós, exceto as folhas, tem exatamente dois filhos.
-- Arvore Binária Balanceada: A altura das subarvores esquerda e direita de qualquer nó difere no máximo por um.
+- **Árvore binária completa:** todos os níveis, exceto talvez o último, estão cheios, e os nós do último nível ficam o mais à esquerda possível.
+- **Árvore binária cheia:** todo nó tem zero ou dois filhos. Nenhuma folha interna fica com um filho só.
+- **Árvore binária balanceada:** em qualquer nó, a altura da subárvore esquerda e a da direita diferem em no máximo um.
 
-### Operações Comuns
+### Operações comuns
 
-- Inserção: Adicionar um novo nó à arvore.
-- Busca: encontrar um nó especifico na arvore.
-- Remoção: Eliminar um nó da arvore.
-- Percursos: Visitar todos os nós da arvore em uma ordem especifica. Os tipos de percursos incluem: 1. Pré-ordem: Visita a raiz, depois a subarvore esquerda, depois a subarvore direita. 2. In-ordem: Visita a sub arvore esquerda, depois a raiz, depois a subarvore direita. 3. Pós-ordem: Visita a subarvore esquerda, depois a subarvore direita, depois a raiz.
+- **Inserção:** acrescentar um nó.
+- **Busca:** localizar um nó.
+- **Remoção:** retirar um nó.
+- **Percursos:** visitar todos os nós numa ordem definida.
+  - Pré-ordem: raiz, subárvore esquerda, subárvore direita.
+  - Em-ordem: subárvore esquerda, raiz, subárvore direita.
+  - Pós-ordem: subárvore esquerda, subárvore direita, raiz.
 
-````
+### Árvore binária de busca
+
+O exemplo abaixo é uma árvore binária de busca (BST). Além do limite de dois filhos, ela mantém uma ordem: valores menores ficam à esquerda do nó e valores maiores, à direita. O percurso em-ordem lista os valores em ordem crescente.
+
+Na remoção há três casos: nó sem filhos, nó com um filho e nó com dois filhos. No último caso, o valor do nó é trocado pelo menor valor da subárvore direita (o sucessor) e esse sucessor é removido.
+
+```cpp
 #include <iostream>
 using namespace std;
 
-// nó da árvore binária
 struct Node {
-        int data;           // armazenando no nó
-        Node* left;         // filho esquerdo
-        Node* right;        // ilho direito
+    int data;
+    Node* left;
+    Node* right;
 
-        Node(int value) {   // Construtor
-            data = value;
-            left = nullptr;
-            right = nullptr;
-        }
+    Node(int value) {
+        data = value;
+        left = nullptr;
+        right = nullptr;
+    }
 };
 
-
- // Classe para a árvore binária de busca
 class BST {
 private:
-    Node* root;     // Raiz da árvore
+    Node* root;
 
-        // Função auxiliar para inserir um nó (recursiva)
-    Node* insertHelper(Node* node, int value) 
-    {
+    Node* insertHelper(Node* node, int value) {
         if (node == nullptr) {
-             return new  Node(value);  //    Cria nov nó se o local estiver vazio
-        }
-        if  (value < node->data) {
-             node->left = insertHelper(node->left, value);  //esquerda
-        } else if (value > node->data) {
-             node->right  = insertHelper(node->right, value); // direita
-        }
-         return node;  // Retorna o nó
-    }
-
-    // buscar um valor - recursiva
-    Node* searchHelper(Node* node, int value) {
-        if (node == nullptr || node->data == value) 
-        {
-             return node;  // Retorna nullptr  se não encontrado ou o nó seencontrado
-        }
-        if (value <  node->data) {
-            return searchHelper(node->left, value);  // Busca  esquerda
-        }
-        return  searchHelper(node->right, value);  // Busca direita
-    }
-
-    // Funçao para encontrar o menor valor 
-    Node*  findMin(Node*  node) {
-        while (node->left != nullptr)  
-        {
-             node = node->left;
-        }
-         return node;
-    }
-
-    // Funçao para remover um nó 
-    Node* removeHelper(Node* node, int value) 
-    {
-        if (node == nullptr) {
-            return nullptr;  // Nó não encontrado
+            return new Node(value);
         }
         if (value < node->data) {
-            node->left = removeHelper(node->left, value);  // Remove à esquerda
+            node->left = insertHelper(node->left, value);
         } else if (value > node->data) {
-            node->right = removeHelper(node->right, value); // Remove à direita
-        } else {  // Nó encontrado
-         // Caso 1: Nó  sem filhos ou com apenas um fiho
-            if (node->left == nullptr) {
-                 Node* temp = node->right;
-                delete  node;
-                return temp;
-            } else if (node->right == nullptr) {
-                Node* temp = node->left; 
-                delete node;
-                return temp;
-            }
-        // Caso 2: Nó com dois filhos
-                Node* temp = findMin(node->right);  
-                node->data = temp->data;            
-                node->right = removeHelper(node->right, temp->data); // Remove  o duplicado
+            node->right = insertHelper(node->right, value);
         }
         return node;
     }
-    void  inorderHelper(Node* node) 
-    {
+
+    Node* searchHelper(Node* node, int value) {
+        if (node == nullptr || node->data == value) {
+            return node;
+        }
+        if (value < node->data) {
+            return searchHelper(node->left, value);
+        }
+        return searchHelper(node->right, value);
+    }
+
+    // Menor valor de uma subárvore: desce sempre pela esquerda.
+    Node* findMin(Node* node) {
+        while (node->left != nullptr) {
+            node = node->left;
+        }
+        return node;
+    }
+
+    Node* removeHelper(Node* node, int value) {
+        if (node == nullptr) {
+            return nullptr;
+        }
+        if (value < node->data) {
+            node->left = removeHelper(node->left, value);
+        } else if (value > node->data) {
+            node->right = removeHelper(node->right, value);
+        } else {
+            // Sem filho esquerdo, ou sem nenhum filho: sobe o direito.
+            if (node->left == nullptr) {
+                Node* temp = node->right;
+                delete node;
+                return temp;
+            } else if (node->right == nullptr) {
+                Node* temp = node->left;
+                delete node;
+                return temp;
+            }
+            // Dois filhos: copia o sucessor e remove a cópia na subárvore direita.
+            Node* temp = findMin(node->right);
+            node->data = temp->data;
+            node->right = removeHelper(node->right, temp->data);
+        }
+        return node;
+    }
+
+    void inorderHelper(Node* node) {
         if (node != nullptr) {
-             inorderHelper(node->left);    // vai subárvore esquerda
-             cout << node->data << " ";    // vai nó atual
-             inorderHelper(node->right);   // vai subárvore direita
+            inorderHelper(node->left);
+            cout << node->data << " ";
+            inorderHelper(node->right);
         }
     }
 
-      // liberar memória
-    void destroyHelper(Node* node) 
-    {
-        if (node !=  nullptr) {
+    void destroyHelper(Node* node) {
+        if (node != nullptr) {
             destroyHelper(node->left);
             destroyHelper(node->right);
             delete node;
@@ -721,21 +715,20 @@ private:
     }
 
 public:
-    BST() { root = nullptr; }  // Construtor
+    BST() { root = nullptr; }
 
-    ~BST() { destroyHelper(root); }  // liberar memória
+    ~BST() { destroyHelper(root); }
 
-    
     void insert(int value) {
-        root = insertHelper(root,  value);
+        root = insertHelper(root, value);
     }
 
     bool search(int value) {
-         return searchHelper(root, value) != nullptr;
+        return searchHelper(root, value) != nullptr;
     }
 
     void remove(int value) {
-     root = removeHelper(root, value);
+        root = removeHelper(root, value);
     }
 
     void inorder() {
@@ -744,12 +737,9 @@ public:
     }
 };
 
-// principal para testar a árvore
-int main() 
-{
+int main() {
     BST tree;
 
-    // Inserir valores
     tree.insert(10);
     tree.insert(5);
     tree.insert(15);
@@ -757,23 +747,17 @@ int main()
     tree.insert(7);
     tree.insert(12);
 
-    
     cout << "Percurso em-ordem: ";
     tree.inorder();
 
-    // Buscando valores
     cout << "Busca 7: " << (tree.search(7) ? "Encontrado" : "Nao encontrado") << endl;
     cout << "Busca 8: " << (tree.search(8) ? "Encontrado" : "Nao encontrado") << endl;
 
-    // Removendo um valor
     cout << "Removendo 5..." << endl;
     tree.remove(5);
     cout << "Novo percurso em-ordem: ";
-    tree.inorder(); 
+    tree.inorder();
 
     return 0;
 }
-````
-
-
-
+```

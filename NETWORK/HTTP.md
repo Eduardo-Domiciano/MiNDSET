@@ -1,108 +1,168 @@
-# Anotações sobre HTTP e HTTPS
+# HTTP, HTTPS, SSL e TLS
 
-## HTTP(S)
+HTTP é o protocolo com que o navegador pede uma página e o servidor responde. HTTPS é esse mesmo protocolo dentro de um túnel cifrado. O túnel se chama TLS. SSL é o antecessor do TLS: a sigla ainda aparece em “certificado SSL”, mas o protocolo SSL não deve mais ser usado. TSL não é um protocolo; é a sigla TLS escrita fora de ordem.
 
-### HTTP
-HTTP (HyperText Transfer Protocol) é um protocolo ou um conjunto de regras, usados para comunicação com servidores web para paginas web, imagens e videos. Foi criado por Tim Berner-Lee e sua equipe entre 1989 e 1991.
+## HTTP
 
-### HTTPS
+**HTTP** (*Hypertext Transfer Protocol*) é o protocolo de aplicação que leva o pedido do cliente até o servidor e traz a resposta de volta. Ele não é a página, nem o HTML, nem o DNS. Ele é o formato da conversa: método, caminho, cabeçalhos e corpo.
 
-HTTPS é uma versao mais segura do HTTP. Os dados do HTTPS sao criptografados para nao apenas impedir que os dados sejam vistos por trerceiros, mas também, garante que você esta falando com o servidor web correto.
+A conversa é **pedido e resposta**. O cliente abre a conexão (na Web clássica, TCP na porta **80**) e envia uma mensagem. O servidor devolve outra mensagem e, no HTTP/1.0, a conexão podia acabar ali. No HTTP/1.1 a conexão costuma ser reaproveitada. HTTP/2 e HTTP/3 mudam o transporte e o empacotamento; o modelo pedido/resposta continua.
 
-## Requisição e Resposta
+O HTTP é **sem estado**. Cada pedido se explica sozinho. O servidor não guarda, pelo protocolo, que o pedido anterior foi da mesma pessoa. Sessão, login e carrinho entram por cima, em cookie, token ou outro mecanismo da aplicação.
 
-Ao acessar um site, o navegador precisa fazer solicitaçpões a um servidor web, para receber html, imagens e respostas. É nescessário informar o navegador como e onde acessar esses recursos, e é aqui que entra o URL.
+```text
+ Cliente                         Servidor
+    |                                |
+    |  GET /index.html HTTP/1.1      |
+    |  Host: www.exemplo.com         |
+    |------------------------------->|
+    |                                |
+    |  HTTP/1.1 200 OK               |
+    |  Content-Type: text/html       |
+    |                                |
+    |  <html>...</html>              |
+    |<-------------------------------|
+```
 
-### URL Uniform Resource Locator
+Um pedido tem três partes:
 
-![Modelo de endereçamento de IP.](../NETWORK/img/URL.jpg)
+1. **Linha inicial:** método, caminho e versão. Exemplo: `GET /index.html HTTP/1.1`.
+2. **Cabeçalhos:** metadados, um por linha. `Host` diz qual site, no mesmo IP, está sendo pedido. `User-Agent`, `Accept` e `Cookie` também vão aqui.
+3. **Corpo:** opcional. Um `GET` em geral não tem corpo. Um `POST` leva o formulário ou o JSON.
 
-- Scheme: esse é o protocolo usado para acessar os recursos.
-- User: Login. Alguns serviços precisam de autenticação.
-- Password: Senha.
-- host: Dominio ou endereço de IP.
-- Port: Porta à qual você irá se conectar.
-- Path: Nome do caminho ou local do recurso que você esta tentando acessar.
-- Query: Bits extras de informação que podem ser enviados para o caminho solicitado.
-- fragment: Essa é uma referencia a um local na pagina real solicitada.
+A resposta repete a ideia: linha de status (`HTTP/1.1 200 OK`), cabeçalhos e corpo (HTML, JSON, imagem, arquivo).
 
-## Metodos HTTP
+Métodos mais usados:
 
-Os metodos HTTP são a maneira do cliente dizer qul ação pretendida com a solicitação. Existem varios, mas na maioria, é usado apenas Get e Post.
+| Método | O que pede |
+|--------|------------|
+| `GET` | Ler um recurso. Não deve alterar o servidor. |
+| `HEAD` | O mesmo que `GET`, sem o corpo. Serve para ver cabeçalhos. |
+| `POST` | Enviar dados para processamento (formulário, criação). |
+| `PUT` | Guardar ou substituir o recurso naquele caminho. |
+| `PATCH` | Alterar parte do recurso. |
+| `DELETE` | Remover o recurso. |
+| `OPTIONS` | Perguntar quais métodos aquele caminho aceita. |
 
-- GET Request: Usado para pegar informação dom servidor web.
-- Post Request: Isso é usado para enviar dados para o servidor web.
-- Put Request: Usados para enviar dados e atualizar informações.
-- Delete: excluir registros do servidor web.
+O status da resposta se lê pelo primeiro dígito:
 
+| Faixa | Sentido |
+|-------|---------|
+| `1xx` | Informação provisória |
+| `2xx` | Sucesso (`200 OK`, `201 Created`) |
+| `3xx` | Redirecionamento (`301`, `302`, `304`) |
+| `4xx` | Erro do cliente (`400`, `401`, `403`, `404`) |
+| `5xx` | Erro do servidor (`500`, `502`, `503`) |
 
-## HTTP Status
+Pelo HTTP puro, quem estiver no caminho lê o pedido e a resposta. Senha, cookie e o HTML viajam em texto claro. É por isso que site público na internet usa HTTPS.
 
-### Referencia de codigos
+## HTTPS
 
-Em uma resposta HTTP a primeira linha é sempre um codigo de status sobre a solicitação e potencialmente como lidar com isso. Estes codigos podem ser divididos em 5 modelos diferentes.
+**HTTPS** é HTTP sobre TLS. O nome expande para *Hypertext Transfer Protocol Secure*. A porta padrão é **443**.
 
-````
- - De 100 a 199 - Respostas e informações: Esse informam o cliente que a primeira parte da solicitação foi aceita e que eles podem continuar com a solicitação. Esses não são muito comuns.
+A ordem importa. Primeiro o cliente e o servidor concluem o TLS. Só depois o HTTP começa, já cifrado. Quem observa a rede vê o IP, a porta e o tamanho aproximado dos pacotes. Não vê a URL completa, os cabeçalhos nem o corpo.
 
- - De 200 a 299 - Sucesso: Esse é um codigo de status para uma solicitação bem sucedida.
+```text
+ Cliente                                      Servidor
+    |                                             |
+    |  1. Handshake TLS (porta 443)               |
+    |     certificado, chaves, cifra              |
+    |<------------------------------------------->|
+    |                                             |
+    |  2. HTTP dentro do túnel                    |
+    |     GET /conta HTTP/1.1                     |
+    |     Cookie: sessao=...                      |
+    |============================================>|
+    |     HTTP/1.1 200 OK                         |
+    |     (cifrado)                               |
+    |<============================================|
+```
 
- - De 300 - 399 - Redirecionamento: Este indica o direcionamento da solicitação para outro recurso. Pode ser uma pagina web diferente ou um site diferente.
+O HTTPS entrega três propriedades, vindas do TLS:
 
- - De 400 - 499 - Erros de cliente: Usado para informar que existe um erro com a solicitação.
+- **Confidencialidade.** O conteúdo não é legível no meio do caminho.
+- **Integridade.** Alterar um byte no caminho invalida a mensagem.
+- **Autenticação do servidor.** O certificado diz que aquele servidor é o dono do nome pedido, se uma autoridade confiável assinou o certificado e se o nome confere.
 
- - De 500 - 599 - Erros de servidor: Este status é reservado para o lado do servidor. Indica erros por parte do servidor que manipula a solicitação. 
-````
+O cadeado do navegador significa que o TLS fechou com um certificado aceito para aquele nome. Não significa que o site seja honesto, nem que o conteúdo seja verdadeiro.
 
-### Codigos mais comuns
+## SSL e TLS
 
-Aqui segue alguns dos codigos mais comuns:
+**SSL** (*Secure Sockets Layer*) é o protocolo antigo de túnel cifrado, criado pela Netscape nos anos 1990. Houve SSL 2.0 e SSL 3.0. Os dois estão aposentados: têm falhas conhecidas e os clientes atuais recusam negociá-los.
 
-- 200: Ok.
-- 201: Um recurso foi criado, como um usuario ou uma postagem.
-- 301: Este redireciona o navegador do cliente para uma nova pagina da web ou informa o mecanismo de pesquisa esta mudança.
-- 302: Igual ao de cima, mas é apenas uma mudança temporartia, podendo também mudar novamente no futuro.
-- 400: Esse diz ao navegador que algo esta errado ou faltando. As vezes pode ser usado se o servidor esperava um parametro que não estava definido para ser enviado.
-- 401: Você não esta autorizado a visualizar esse recurso. Falta de Autenticação.
-- 403: Voce nao esta autorizado a ver esse recurso, mesmo autenticado.
-- 404: Pagina nao encontrada. O recurso que voce solicitou nao existe.
-- 405: Metodo nao permitido. Por exemplo quando um get é enviado no lugar de um post por exemplo. Verifique se o metodo esta correto.
-- 500: O servidor encontrou algum tipo de erro com o qual nao sabe lidar.
-- 503: Este servidort nao pode lidar com a solicitação por estar sobrecarregado ou inativo.
+**TLS** (*Transport Layer Security*) é o sucessor. O TLS 1.0 saiu em 1999 a partir do SSL 3.0, com outro nome para não ficar preso à Netscape. TLS 1.0 e 1.1 também estão obsoletos. O que se usa hoje é **TLS 1.2** e **TLS 1.3**.
 
-## Cabeçalhos
+```text
+  SSL 2.0  →  SSL 3.0  →  TLS 1.0  →  TLS 1.1  →  TLS 1.2  →  TLS 1.3
+  aposentado   aposentado   obsoleto    obsoleto    em uso      em uso
+```
 
-Headers são bit adicionais enviados em requisições. Eles não são obrigatorios, mas são comumente usandos.
+Na prática, “certificado SSL” e “certificado TLS” são o mesmo objeto: um certificado **X.509**, com a chave pública do servidor e a assinatura de uma autoridade certificadora (CA). O certificado não escolhe SSL ou TLS. Quem escolhe a versão é a negociação entre cliente e servidor. Um certificado novo, num servidor atual, fala TLS.
 
-### Headers de solicitações comuns
+O aperto de mão do TLS, em linhas gerais:
 
-Esses são cabeçalhos de solicitação mais comuns:
-- Host: Alguns servidores web hospedam varios sites, fornecendo o host, o server consegue saber qual site esta sendo solicitado. Caso contrario, ele apresentará o site padrão.
+1. O cliente diz quais versões e cifras aceita.
+2. O servidor escolhe uma combinação e envia o certificado.
+3. O cliente confere a cadeia até uma CA em que confia, o prazo e se o nome do certificado é o nome do site.
+4. Os dois combinam a chave da sessão. A chave privada do servidor não viaja na rede.
+5. A partir daí, o HTTP (ou outro protocolo) segue cifrado com essa chave de sessão.
 
-- User-Agent: Esse é o software do navegador e a versão. ele também ajuda a formatar o site e informa os elemento e tecnologia disponiveis em sua versão.
+TLS protege o transporte. Ele não substitui login, autorização nem cuidado com o que a aplicação faz depois de decifrar o pedido.
 
-- Constent-Length: Ao enviar a solicitação, informamos a quantidade de dados estão sendo enviados, para que o servidor consiga garantir que nao falta nada.
+## Esquema de uma URL
 
-- Accept-Encoding: informa os formatos de compactação, para que os dados possam ser compactados para a transmissao.
+**URL** (*Uniform Resource Locator*) é o endereço de um recurso e a indicação de **como** buscá-lo. A forma geral:
 
-- Coockies: Dados enviados ao servidor para ajudar o servidor a lembrar de suas informações.
+```text
+esquema://usuario:senha@host:porta/caminho?consulta#fragmento
+```
 
+Exemplo completo, com todas as peças:
 
-### Headers de respostas comuns
+```text
+https://ana:segredo@www.exemplo.com:443/conta/pedidos?status=aberto#resumo
+|___|   |__________| |______________| |_||______________||____________| |____|
+  |          |              |           |        |              |          |
+esquema   usuário        host        porta    caminho       consulta   fragmento
+```
 
-Set-cookies: Informações a serem armazanadas que devem ser enviadas ao web server em cada solicitação.
+| Peça | No exemplo | Função |
+|------|------------|--------|
+| Esquema | `https` | Protocolo. Decide o modo de conexão e a porta padrão. |
+| Usuário e senha | `ana:segredo` | Credencial embutida na autoridade. Evite: fica em histórico, log e referenciador. |
+| Host | `www.exemplo.com` | Nome ou IP do servidor. O DNS transforma o nome em IP. |
+| Porta | `443` | Porta TCP (ou UDP, no HTTP/3). Omitida, vale a padrão do esquema. |
+| Caminho | `/conta/pedidos` | Recurso dentro daquele host. |
+| Consulta | `status=aberto` | Parâmetros para o servidor. Começa em `?`. Vários pares se separam com `&`. |
+| Fragmento | `resumo` | Ponto dentro da página. Começa em `#`. O navegador usa; **não** envia ao servidor. |
 
-Cache-Control:Por quanto tempo armazenar o conteudo da resposta do cache, antes de solicita-las novamente.
+O **esquema** é o trecho anterior a `://`. Ele não é decoração: o cliente escolhe o programa de acesso por causa dele.
 
-Content-Type: Informa ao cliente que tipo de dado esta sendo retornado, HTML, CSS, JS, Iagem, PDF, videos, etc.
+| Esquema | O que o cliente faz | Porta padrão |
+|---------|---------------------|--------------|
+| `http` | Abre TCP e fala HTTP em claro | 80 |
+| `https` | Abre TCP, conclui TLS e só então fala HTTP | 443 |
+| `ftp` | Usa o protocolo de transferência de arquivos | 21 |
 
-Content-Encoding: Qual metodo foi usado para compactar os dados enviados.
+`http://www.exemplo.com/conta` e `https://www.exemplo.com/conta` apontam para o mesmo caminho no mesmo host e são recursos diferentes para o cliente: um vai à porta 80 sem cifra, o outro à porta 443 com TLS. Se a porta padrão vale, ela pode sumir da barra de endereço. `https://www.exemplo.com/conta` é o mesmo que `https://www.exemplo.com:443/conta`.
 
-## Cookies
+Ordem em que o navegador usa essas peças num `https`:
 
-Você provavelmente ja ouviu falar de cookies antes. Os Cookies sao salvos quando quando você recebe um cabeçalho "Set-Cookie" de um servidor web. Em seguida, a cada solicitação adicional que você fizer, você enviará dados de cookie para o servidor web. Os coockies podem ser usado para muitas finalidades, mas sao mais usados para autenticidades em sites.
-O valor do cookie geralmente é um token.
+```text
+ URL
+  |
+  |  1. Lê o esquema → https
+  |  2. DNS do host → endereço IP
+  |  3. TCP no IP, porta 443
+  |  4. TLS: certificado precisa cobrir o host
+  |  5. HTTP: método + caminho + ?consulta
+  |     Host: www.exemplo.com
+  |  6. #fragmento fica no navegador
+  v
+ Página
+```
 
+Dois detalhes que mudam o diagnóstico:
 
-
-
+- O caminho e a consulta vão no pedido HTTP, depois do TLS. O esquema e a porta não se repetem nessa linha inicial; o `Host` leva o nome.
+- Um certificado emitido para `exemplo.com` não cobre, sozinho, `outro.com`. O nome que o TLS valida é o host da URL, não o caminho.
